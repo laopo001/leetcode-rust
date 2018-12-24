@@ -1,3 +1,5 @@
+#![allow(unused)]
+use std::cell::RefCell;
 use std::collections::{HashMap, HashSet};
 
 fn num_unique_emails(emails: &mut Vec<String>) -> i32 {
@@ -44,6 +46,40 @@ fn to_lower_case(str: String) -> String {
         }
     }
     return String::from_utf8(res).unwrap();
+}
+
+struct MyStack {
+    r: RefCell<Vec<i32>>,
+}
+
+/** You can modify self type for your need. */
+impl MyStack {
+    /** Initialize your data structure here. */
+    fn new() -> Self {
+        MyStack {
+            r: RefCell::new(Vec::new()),
+        }
+    }
+    /** Push element x onto stack. */
+
+    fn push(&self, x: i32) {
+        self.r.borrow_mut().push(x);
+    }
+    /** Removes the element on top of the stack and returns that element. */
+
+    fn pop(&self) -> i32 {
+        return self.r.borrow_mut().pop().unwrap();
+    }
+    /** Get the top element. */
+
+    fn top(&self) -> i32 {
+        *self.r.borrow().first().unwrap()
+    }
+    /** Returns whether the stack is empty. */
+
+    fn empty(&self) -> bool {
+        self.r.borrow().is_empty()
+    }
 }
 
 fn main() {
