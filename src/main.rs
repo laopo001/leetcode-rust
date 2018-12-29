@@ -82,6 +82,76 @@ impl MyStack {
     }
 }
 
+fn flip_and_invert_image(a: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
+    // let coumnLen = a.len();
+    // let rowLen = a[0].len();
+    let mut b: Vec<Vec<i32>> = Vec::new();
+    for row in a {
+        let mut new_row: Vec<i32> = Vec::new();
+        // row.reserve(row.len());
+        for i in 0..row.len() {
+            let currIndex = row.len() - 1 - i;
+            let curr = if row[currIndex] == 0 { 1 } else { 0 };
+            new_row.push(curr);
+        }
+        b.push(new_row);
+    }
+    return b;
+}
+
+fn indexOfVec<T: PartialEq>(v: &Vec<T>, i: T) -> Option<usize> {
+    for item in 0..v.len() {
+        if i == v[item] {
+            return Some(item);
+        }
+    }
+    return None;
+}
+
+fn find_words(words: Vec<String>) -> Vec<String> {
+    let arr = vec!['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'];
+    let arr1 = vec!['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'];
+    let arr2 = vec!['z', 'x', 'c', 'v', 'b', 'n', 'm'];
+    let mut res: Vec<String> = Vec::new();
+    for item in words {
+        let mut b = true;
+        let lowers = item.to_ascii_lowercase();
+        for c in lowers.chars() {
+            if indexOfVec(&arr, c) == None {
+                b = false;
+                break;
+            }
+        }
+        if (b) {
+            res.push(item);
+            continue;
+        }
+        b = true;
+        for c in lowers.chars() {
+            if indexOfVec(&arr1, c) == None {
+                b = false;
+                break;
+            }
+        }
+        if (b) {
+            res.push(item);
+            continue;
+        }
+        b = true;
+        for c in lowers.chars() {
+            if indexOfVec(&arr2, c) == None {
+                b = false;
+                break;
+            }
+        }
+        if (b) {
+            res.push(item);
+            continue;
+        }
+    }
+    return res;
+}
+
 fn main() {
     let mut emails = vec!["12@3".to_string()];
     let map: HashMap<String, bool> = HashMap::new();
