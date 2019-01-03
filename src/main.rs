@@ -1,6 +1,8 @@
 #![allow(unused)]
 use std::cell::RefCell;
+use std::cmp;
 use std::collections::{HashMap, HashSet};
+use std::i32;
 
 fn num_unique_emails(emails: &mut Vec<String>) -> i32 {
     let mut set: HashSet<String> = HashSet::new();
@@ -90,8 +92,8 @@ fn flip_and_invert_image(a: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
         let mut new_row: Vec<i32> = Vec::new();
         // row.reserve(row.len());
         for i in 0..row.len() {
-            let currIndex = row.len() - 1 - i;
-            let curr = if row[currIndex] == 0 { 1 } else { 0 };
+            let curr_index = row.len() - 1 - i;
+            let curr = if row[curr_index] == 0 { 1 } else { 0 };
             new_row.push(curr);
         }
         b.push(new_row);
@@ -99,7 +101,7 @@ fn flip_and_invert_image(a: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
     return b;
 }
 
-fn indexOfVec<T: PartialEq>(v: &Vec<T>, i: T) -> Option<usize> {
+fn index_of_vec<T: PartialEq>(v: &Vec<T>, i: T) -> Option<usize> {
     for item in 0..v.len() {
         if i == v[item] {
             return Some(item);
@@ -117,7 +119,7 @@ fn find_words(words: Vec<String>) -> Vec<String> {
         let mut b = true;
         let lowers = item.to_ascii_lowercase();
         for c in lowers.chars() {
-            if indexOfVec(&arr, c) == None {
+            if index_of_vec(&arr, c) == None {
                 b = false;
                 break;
             }
@@ -128,7 +130,7 @@ fn find_words(words: Vec<String>) -> Vec<String> {
         }
         b = true;
         for c in lowers.chars() {
-            if indexOfVec(&arr1, c) == None {
+            if index_of_vec(&arr1, c) == None {
                 b = false;
                 break;
             }
@@ -139,7 +141,7 @@ fn find_words(words: Vec<String>) -> Vec<String> {
         }
         b = true;
         for c in lowers.chars() {
-            if indexOfVec(&arr2, c) == None {
+            if index_of_vec(&arr2, c) == None {
                 b = false;
                 break;
             }
@@ -150,6 +152,42 @@ fn find_words(words: Vec<String>) -> Vec<String> {
         }
     }
     return res;
+}
+
+fn to_decimal(n: i32, d: i32) -> String {
+    let mut res = "".to_string();
+    let mut n = n;
+    while n != 0 {
+        let t = n % d;
+        res = t.to_string() + res.as_str();
+        n = (n - t) / d;
+    }
+    return res.to_string();
+}
+
+fn binary_gap(n: i32) -> i32 {
+    let w: String = to_decimal(n, 2);
+    let mut len = 0;
+    let mut i = 0;
+    let mut cout = 0;
+    let mut a = 0;
+    let mut b = 0;
+    for c in w.chars() {
+        i = i + 1;
+        if (c == '1') {
+            if (cout == 0) {
+                a = i;
+                cout = cout + 1;
+            }
+            if (cout == 1) {
+                b = i;
+                len = cmp::max(b - a, len);
+                a = b;
+                // b = 0;
+            }
+        }
+    }
+    return len;
 }
 
 fn main() {
