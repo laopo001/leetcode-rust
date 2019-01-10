@@ -3,6 +3,7 @@ use std::cell::RefCell;
 use std::cmp;
 use std::collections::{HashMap, HashSet};
 use std::i32;
+use std::rc::Rc;
 
 fn num_unique_emails(emails: &mut Vec<String>) -> i32 {
     let mut set: HashSet<String> = HashSet::new();
@@ -188,6 +189,36 @@ fn binary_gap(n: i32) -> i32 {
         }
     }
     return len;
+}
+
+#[derive(Debug, PartialEq, Eq)]
+pub struct TreeNode {
+    pub val: i32,
+    pub left: Option<Rc<RefCell<TreeNode>>>,
+    pub right: Option<Rc<RefCell<TreeNode>>>,
+}
+
+impl TreeNode {
+    #[inline]
+    pub fn new(val: i32) -> Self {
+        TreeNode {
+            val,
+            left: None,
+            right: None,
+        }
+    }
+}
+
+fn search_bst(root: Option<Rc<RefCell<TreeNode>>>, val: i32) -> Option<Rc<RefCell<TreeNode>>> {
+    if let Some(r) = &root {
+        if r.borrow().val < val {
+            return search_bst(r.borrow().left.clone(), val);
+        }
+        if r.borrow().val > val {
+            return search_bst(r.borrow().right.clone(), val);
+        }
+    }
+    return root;
 }
 
 fn main() {
