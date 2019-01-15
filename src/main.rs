@@ -1,17 +1,19 @@
-use std::collections::HashMap;
+#![allow(unused)]
 
-fn num_unique_emails(emails: &mut Vec<String>) -> i32 {
-    // let map: HashMap<&str, bool> = HashMap::new();
-    for item in emails {
-        let arr: Vec<_> = item.split('@').collect();
-        let left = arr[0];
-        let right = arr[1];
-    }
-    return 123;
-}
+mod univalued_binary_tree;
+mod unique_email_addresses;
+mod n_repeated_element_in_size_2n_array;
+mod to_lower_case;
+mod flipping_an_image;
+mod keyboard_row;
+mod binary_gap;
+mod search_in_a_binary_search_tree;
+mod isomorphic_strings;
+
+
+
 
 fn main() {
-    let mut emails = vec!["123".to_string()];
-    num_unique_emails(&mut emails);
     println!("Hello, world!");
 }
+
