@@ -9,6 +9,7 @@ mod keyboard_row;
 mod binary_gap;
 mod search_in_a_binary_search_tree;
 mod isomorphic_strings;
+mod search_insert_position;
 
 
 
