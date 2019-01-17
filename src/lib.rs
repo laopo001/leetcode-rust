@@ -1,4 +1,4 @@
-mod base;
+pub mod base;
 
 mod univalued_binary_tree;
 mod unique_email_addresses;
@@ -11,4 +11,4 @@ mod search_in_a_binary_search_tree;
 mod isomorphic_strings;
 mod search_insert_position;
 mod minimum_depth_of_binary_tree;
-
+pub mod friend_circles;

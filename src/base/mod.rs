@@ -23,3 +23,11 @@ impl TreeNode {
 
 pub struct Solution;
 
+pub fn index_of_vec<T: PartialEq>(v: &Vec<T>, i: T) -> Option<usize> {
+    for item in 0..v.len() {
+        if i == v[item] {
+            return Some(item);
+        }
+    }
+    return None;
+}
