@@ -11,4 +11,5 @@ mod search_in_a_binary_search_tree;
 mod isomorphic_strings;
 mod search_insert_position;
 mod minimum_depth_of_binary_tree;
-pub mod friend_circles;
+mod friend_circles;
+mod robot_return_to_origin;
