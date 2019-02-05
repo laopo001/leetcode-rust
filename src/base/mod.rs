@@ -42,3 +42,18 @@ pub fn to_decimal(n: i32, d: i32) -> String {
     }
     return res.to_string();
 }
+
+pub fn string_to_num(s: String, d: i32) -> i32 {
+    let mut res = 0;
+    let bytes = s.as_bytes();
+    for i in 0..bytes.len() {
+        let index = bytes.len() - 1 - i;
+        res += (bytes[i] as i32 - 48) * d.pow(index as u32);
+    }
+    return res;
+}
+
+#[test]
+fn test_string_to_num() {
+    assert_eq!(string_to_num("12".to_string(), 10), 12);
+}
