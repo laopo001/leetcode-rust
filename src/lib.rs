@@ -18,3 +18,4 @@ mod count_and_say;
 mod surface_area_of_3d_shapes;
 mod sum_root_to_leaf_numbers;
 mod path_sum;
+mod path_sum_iii;
