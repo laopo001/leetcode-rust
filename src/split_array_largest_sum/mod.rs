@@ -15,7 +15,7 @@ fn check(nums: &Vec<i32>, mid: i64, m: i32) -> bool {
             c += 1;
         }
     }
-    return c + 1 < m;
+    return c + 1 <= m;
 }
 
 impl Solution {
@@ -26,13 +26,17 @@ impl Solution {
         for item in &nums {
             max += *item as i64;
         }
+        if m == 1 {
+            return max as i32;
+        }
         while min <= max {
             let mut mid = (max + min) / 2;
+            // println!("{:?}，{:?}", min, mid);
             if check(&nums, mid, m) {
-                max -= 1;
+                max = mid - 1;
                 res = mid;
             } else {
-                min += 1;
+                min = mid + 1;
             }
         }
         return res as i32;
