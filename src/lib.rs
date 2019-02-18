@@ -23,3 +23,4 @@ mod longest_univalue_path;
 mod binary_tree_maximum_path_sum;
 pub mod split_array_largest_sum;
 mod plus_one;
+mod maximum_subarray;
