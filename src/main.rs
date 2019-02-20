@@ -1,12 +1,9 @@
 #![allow(unused)]
 use leetcode::base::Solution;
-use leetcode::split_array_largest_sum;
+use leetcode::best_time_to_buy_and_sell_stock_with_cooldown;
 
 fn main() {
-    Solution::split_array(vec![1, 2147483646], 2);
-    let mut a: i32 = 0;
-    let mut b = &mut a;
-    *b = 2;
-    println!("{}", a);
+    Solution::max_profit3(vec![2,6,5,0,3]);
+
     println!("Hello, world!");
 }

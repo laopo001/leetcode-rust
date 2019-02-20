@@ -26,4 +26,4 @@ mod plus_one;
 mod maximum_subarray;
 mod best_time_to_buy_and_sell_stock;
 mod best_time_to_buy_and_sell_stock_ii;
-mod best_time_to_buy_and_sell_stock_with_cooldown;
+pub mod best_time_to_buy_and_sell_stock_with_cooldown;
