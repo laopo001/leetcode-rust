@@ -4,38 +4,24 @@ use std::cmp::max;
 
 impl Solution {
     pub fn max_profit3(prices: Vec<i32>) -> i32 {
-        let mut res = 0;
-        let mut sum = 0;
-        let mut max_value = std::i32::MAX;
-        let mut b = false;
-        for i in 0..prices.len() {
-            if b {
-                b = false;
-                continue;
-            }
-            if prices[i] < max_value {
-                max_value = prices[i];
-            } else {
-                // println!("{:?}", prices[i]);
-                res = max(res, prices[i] - max_value);
-                if i < prices.len() - 2
-                    && prices[i] <= prices[i + 1]
-                    && prices[i + 1] > prices[i + 2]
-                {
-                    max_value = std::i32::MAX;
-                    sum += res;
-                    res = 0;
-                    b = true;
-                } else if i < prices.len() - 1 && prices[i] > prices[i + 1] {
-                    max_value = std::i32::MAX;
-                    sum += res;
-                    res = 0;
-                }
-                if i == prices.len() - 1 {
-                    sum += res;
-                }
-            }
+        let len = prices.len();
+        if len == 0 {
+            return 0;
         }
-        return sum;
+        let mut sell: Vec<i32> = Vec::new(); 
+        let mut buy: Vec<i32> = Vec::new(); // 购买成本
+        for i in 0..len {
+            sell.push(0);
+            buy.push(0);
+        }
+        sell[0] = 0;
+        buy[0] = -prices[0];
+        for i in 1..len {
+            sell[i] = max(sell[i - 1], prices[i] + buy[i - 1]);
+            buy[i] = max(buy[i - 1], if i > 1 { sell[i - 2] } else { 0 } - prices[i]);
+        }
+        // println!("{:?}",sell);
+        // println!("{:?}",buy);
+        return sell[len - 1];
     }
 }
