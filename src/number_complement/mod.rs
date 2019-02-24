@@ -1,7 +1,7 @@
 #![allow(unused)]
 use crate::base::{Solution, TreeNode};
 
-pub fn to_decimal(n: i32, d: i32) -> String {
+pub fn num_to_string(n: i32, d: i32) -> String {
     let mut res = "".to_string();
     let mut n = n;
     while n != 0 {
@@ -24,7 +24,7 @@ pub fn string_to_num(s: String, d: i32) -> i32 {
 
 impl Solution {
     pub fn find_complement(num: i32) -> i32 {
-        let mut s = to_decimal(num, 2);
+        let mut s = num_to_string(num, 2);
         let mut temp = String::new();
 
         for c in s.bytes() {

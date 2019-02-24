@@ -32,7 +32,7 @@ pub fn index_of_vec<T: PartialEq>(v: &Vec<T>, i: T) -> Option<usize> {
     return None;
 }
 
-pub fn to_decimal(n: i32, d: i32) -> String {
+pub fn num_to_string(n: i32, d: i32) -> String {
     let mut res = "".to_string();
     let mut n = n;
     while n != 0 {

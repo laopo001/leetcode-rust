@@ -1,10 +1,10 @@
 #![allow(unused)]
-use leetcode::base::{string_to_num, to_decimal, Solution};
+use leetcode::base::{num_to_string, string_to_num, Solution};
 use leetcode::best_time_to_buy_and_sell_stock_with_cooldown;
 
 fn main() {
     Solution::max_profit3(vec![2, 6, 5, 0, 3]);
-    let mut s = to_decimal(5, 2);
+    let mut s = num_to_string(5, 2);
 
     let mut temp = String::new();
 
