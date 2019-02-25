@@ -21,6 +21,22 @@ impl TreeNode {
     }
 }
 
+#[derive(PartialEq, Eq, Debug)]
+pub struct ListNode {
+  pub val: i32,
+  pub next: Option<Box<ListNode>>
+}
+
+impl ListNode {
+  #[inline]
+  fn new(val: i32) -> Self {
+    ListNode {
+      next: None,
+      val
+    }
+  }
+}
+
 pub struct Solution;
 
 pub fn index_of_vec<T: PartialEq>(v: &Vec<T>, i: T) -> Option<usize> {
