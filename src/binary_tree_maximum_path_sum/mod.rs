@@ -17,14 +17,14 @@ fn run(root: Option<Rc<RefCell<TreeNode>>>, res: &mut i32) -> i32 {
     }
     let l = run(node.borrow().left.clone(), res);
     let r = run(node.borrow().right.clone(), res);
-    let maxValue = max(
+    let max_value = max(
         l + r + node.borrow().val,
         max(
             node.borrow().val,
             max(l + node.borrow().val, r + node.borrow().val),
         ),
     );
-    *res = max(*res, maxValue);
+    *res = max(*res, max_value);
     return max(
             node.borrow().val,
             max(l + node.borrow().val, r + node.borrow().val),
