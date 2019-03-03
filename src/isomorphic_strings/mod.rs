@@ -1,7 +1,5 @@
+use crate::base::Solution;
 use std::collections::HashMap;
-
-#[derive(Debug)]
-pub struct Solution;
 
 impl Solution {
     pub fn is_isomorphic(s: String, t: String) -> bool {
@@ -19,7 +17,6 @@ impl Solution {
                     return false;
                 }
             } else {
-               
                 if map2.contains_key(b) {
                     if map2.get(b).unwrap() != a {
                         return false;

@@ -1,3 +1,5 @@
+#[allow(dead_code)]
+
 fn flip_and_invert_image(a: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
     // let coumnLen = a.len();
     // let rowLen = a[0].len();

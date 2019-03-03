@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 fn index_of_vec<T: PartialEq>(v: &Vec<T>, i: T) -> Option<usize> {
     for item in 0..v.len() {
         if i == v[item] {
@@ -6,7 +7,7 @@ fn index_of_vec<T: PartialEq>(v: &Vec<T>, i: T) -> Option<usize> {
     }
     return None;
 }
-
+#[allow(dead_code)]
 pub fn find_words(words: Vec<String>) -> Vec<String> {
     let arr = vec!['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'];
     let arr1 = vec!['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'];
@@ -21,7 +22,7 @@ pub fn find_words(words: Vec<String>) -> Vec<String> {
                 break;
             }
         }
-        if (b) {
+        if b {
             res.push(item);
             continue;
         }
@@ -32,7 +33,7 @@ pub fn find_words(words: Vec<String>) -> Vec<String> {
                 break;
             }
         }
-        if (b) {
+        if b {
             res.push(item);
             continue;
         }
@@ -43,7 +44,7 @@ pub fn find_words(words: Vec<String>) -> Vec<String> {
                 break;
             }
         }
-        if (b) {
+        if b {
             res.push(item);
             continue;
         }
