@@ -30,4 +30,54 @@ impl Solution {
         }
         return max_len.to_string();
     }
+    /**
+     dp[i, j]   = 1                                   if i == j
+
+                = s[i] == s[j]                        if j = i + 1
+
+                = s[i] == s[j] && dp[i + 1][j - 1]    if j > i + 1
+    */
+    #[warn(deprecated)]
+    pub fn longest_palindrome2(s: String) -> String {
+        let mut dp: Vec<Vec<i32>> = vec![vec![0; s.len()]; s.len()];
+        let c = s.as_bytes();
+        let len = s.len();
+        let mut max_len = 0;
+        let mut max_index = 0;
+        for i in 0..len {
+            for j in 0..(i + 1) {
+                if i == j {
+                    dp[j][i] = 1;
+                    max_len = 1;
+                    max_index = j;
+                }
+            }
+        }
+        for i in 0..len {
+            for j in 0..i {
+                if i == j + 1 && c[i] == c[j] {
+                    dp[j][i] = 1;
+                    max_len = 2;
+                    max_index = j;
+                }
+            }
+        }
+        for i in 0..len {
+            for j in 0..i {
+                if i > j + 1 && c[i] == c[j] && c[i - 1] == c[j + 1] {
+                    dp[j][i] = 1;
+                    // println!("{:?},{:?}",j,i);
+                    if i - j + 1 > max_len {
+                        max_len = i - j + 1;
+                        max_index = j;
+                    }
+                }
+            }
+        }
+        unsafe {
+            return s
+                .slice_unchecked(max_index, max_index + max_len)
+                .to_string();
+        }
+    }
 }
