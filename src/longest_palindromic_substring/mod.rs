@@ -45,28 +45,23 @@ impl Solution {
         let mut max_len = 0;
         let mut max_index = 0;
         for i in 0..len {
-            for j in 0..(i + 1) {
-                if i == j {
-                    dp[j][i] = 1;
-                    max_len = 1;
-                    max_index = j;
-                }
+            dp[i][i] = 1;
+            max_len = 1;
+            max_index = i;
+        }
+        for i in 0..len {
+            let j = i + 1;
+            if j < len && c[i] == c[j] {
+                dp[i][j] = 1;
+                max_len = 2;
+                max_index = i;
             }
         }
         for i in 0..len {
             for j in 0..i {
-                if i == j + 1 && c[i] == c[j] {
+                if i > j + 1 && c[i] == c[j] && dp[j + 1][i - 1] == 1 {
                     dp[j][i] = 1;
-                    max_len = 2;
-                    max_index = j;
-                }
-            }
-        }
-        for i in 0..len {
-            for j in 0..i {
-                if i > j + 1 && c[i] == c[j] && c[i - 1] == c[j + 1] {
-                    dp[j][i] = 1;
-                    // println!("{:?},{:?}",j,i);
+                    // println!("{:?},{:?}", j, i);
                     if i - j + 1 > max_len {
                         max_len = i - j + 1;
                         max_index = j;
@@ -75,9 +70,7 @@ impl Solution {
             }
         }
         unsafe {
-            return s
-                .slice_unchecked(max_index, max_index + max_len)
-                .to_string();
+            return s.get_unchecked(max_index..max_index + max_len).to_string();
         }
     }
 }
