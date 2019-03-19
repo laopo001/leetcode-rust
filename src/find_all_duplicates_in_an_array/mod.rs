@@ -6,8 +6,8 @@ impl Solution {
         let mut map: HashMap<i32, i32> = HashMap::new();
         for item in nums {
             if map.contains_key(&item) {
-                let t = map.get_mut(&item).unwrap();
-                *t += 1;
+                // let t = map.get_mut(&item).unwrap();
+                // *t += 1;
                 res.push(item);
             } else {
                 map.insert(item, 1);
