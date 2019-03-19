@@ -6,6 +6,7 @@ pub mod best_time_to_buy_and_sell_stock_with_cooldown;
 mod binary_gap;
 mod binary_tree_maximum_path_sum;
 mod count_and_say;
+pub mod find_all_duplicates_in_an_array;
 mod flipping_an_image;
 mod friend_circles;
 mod isomorphic_strings;
