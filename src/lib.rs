@@ -34,3 +34,4 @@ mod to_lower_case;
 mod unique_email_addresses;
 pub mod unique_paths;
 mod univalued_binary_tree;
+pub mod valid_anagram;
