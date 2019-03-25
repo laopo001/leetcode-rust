@@ -1,11 +1,22 @@
 use crate::base::Solution;
-// trait JsArray<T> {
-//     // 方法从数组中删除第一个元素
-//     fn shift(&mut self) -> Option<T> {
-//         return self.remove_item(&0);
-//     }
-//     fn unshift(&mut self, elm: T);
-// }
+trait JsArray<T> {
+    // 方法从数组中删除第一个元素
+    fn shift(&mut self) -> Option<T>;
+    fn unshift(&mut self, elm: T);
+}
+
+impl<T> JsArray<T> for Vec<T> {
+    fn shift(&mut self) -> Option<T> {
+        if self.len() == 0 {
+            return None;
+        } else {
+            return Some(self.remove(0));
+        }
+    }
+    fn unshift(&mut self, elm: T) {
+        self.insert(0, elm);
+    }
+}
 
 impl Solution {
     #[allow(while_true)]
