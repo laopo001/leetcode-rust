@@ -32,3 +32,4 @@ pub mod merge_two_sorted_lists;
 pub mod stone_game;
 pub mod unique_paths;
 pub mod baseball_game;
+pub mod di_string_match;
