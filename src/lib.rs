@@ -37,3 +37,4 @@ mod univalued_binary_tree;
 pub mod valid_anagram;
 pub mod merge_sorted_array;
 pub mod self_dividing_numbers;
+pub mod insert_into_a_binary_search_tree;
