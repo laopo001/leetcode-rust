@@ -30,13 +30,12 @@ impl Solution {
         }
         return max_len.to_string();
     }
-    /**
-     dp[i, j]   = 1                                   if i == j
+    //
+    // dp[i, j]   = 1                                 if i == j
 
-                = s[i] == s[j]                        if j = i + 1
+    //           = s[] == s[j]                        if j = i + 1
 
-                = s[i] == s[j] && dp[i + 1][j - 1]    if j > i + 1
-    */
+    //           = s[i] == s[j] && dp[i + 1][j - 1]   if j > i + 1
     #[warn(deprecated)]
     pub fn longest_palindrome2(s: String) -> String {
         let mut dp: Vec<Vec<i32>> = vec![vec![0; s.len()]; s.len()];
