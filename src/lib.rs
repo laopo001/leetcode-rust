@@ -35,3 +35,4 @@ pub mod baseball_game;
 pub mod di_string_match;
 pub mod unique_morse_code_words;
 pub mod merge_two_binary_trees;
+pub mod maximum_binary_tree;
