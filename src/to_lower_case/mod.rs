@@ -1,4 +1,4 @@
-
+#[allow(dead_code)]
 pub fn to_lower_case(str: String) -> String {
     // for i in 0..str.len() {
     //     let c = str.get(i..(i+1));

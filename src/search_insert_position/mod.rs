@@ -1,12 +1,13 @@
-struct Solution;
+use crate::base::Solution;
+
 impl Solution {
     pub fn search_insert(nums: Vec<i32>, target: i32) -> i32 {
         for i in 0..nums.len() {
             let item = nums[i];
-            if (target == item) {
+            if target == item {
                 return i as i32;
             }
-            if (target < item) {
+            if target < item {
                 return (i - 1) as i32;
             }
         }

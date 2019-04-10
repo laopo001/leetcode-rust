@@ -1,5 +1,5 @@
-use std::collections::{HashMap, HashSet};
-
+use std::collections::HashSet;
+#[allow(dead_code, unused_assignments)]
 pub fn num_unique_emails(emails: &mut Vec<String>) -> i32 {
     let mut set: HashSet<String> = HashSet::new();
     for item in emails.into_iter() {

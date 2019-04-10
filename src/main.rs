@@ -1,7 +1,9 @@
 #![allow(unused)]
-use leetcode::base::{num_to_string, string_to_num, Solution};
-use leetcode::best_time_to_buy_and_sell_stock_with_cooldown;
+use leetcode::base::{num_to_string, string_to_num, Solution, TreeNode};
+use leetcode::longest_palindromic_substring;
+use std::cell::RefCell;
 use std::mem;
+use std::rc::Rc;
 
 #[derive(Debug, Clone, Copy)]
 struct Point {
@@ -46,4 +48,21 @@ fn main() {
     mem::swap(a_ref, b_ref);
     println!("{:?}", a_ref);
     println!("Hello, world!");
+
+    ///
+    let arr = [
+        Rc::new(RefCell::new("Hello")),
+        Rc::new(RefCell::new("World")),
+    ];
+    let s = arr
+        .iter()
+        .map(|s| {
+            let c = Rc::clone(s);
+            // format!("{}", c.borrow())
+            // This line works fine
+            return format!("{}", c.borrow());
+        })
+        .collect::<Vec<_>>()
+        .join(" ");
+    println!("{}", s);
 }
