@@ -107,6 +107,9 @@ pub trait JsArray<T> {
     fn reduce<F, K>(&self, f: F, c: K) -> K
     where
         F: FnMut(&K, &T) -> K;
+    // fn slice<R>(&self, r: R) -> &[T]
+    // where
+    //     R: std::ops::RangeBounds<usize>;
 }
 
 impl<T> JsArray<T> for Vec<T> {
@@ -215,5 +218,5 @@ struct A(i32);
 #[test]
 fn test_reduce() {
     let mut arr = vec![1, 2];
-    assert_eq!(A(3), arr.reduce(|x, y| A(x.0 + y), A(0) ));
+    assert_eq!(A(3), arr.reduce(|x, y| A(x.0 + y), A(0)));
 }
