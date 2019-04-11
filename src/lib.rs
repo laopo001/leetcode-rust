@@ -46,3 +46,4 @@ pub mod unique_paths;
 mod univalued_binary_tree;
 pub mod valid_anagram;
 pub mod remove_outermost_parentheses;
+pub mod search_in_rotated_sorted_array;
