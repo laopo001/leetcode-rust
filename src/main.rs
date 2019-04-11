@@ -36,9 +36,14 @@ fn main() {
     dynamic_dispatch(&foo);
     ///
     let mut arr = vec![1];
-    let q = arr.find_mut(Box::new(|&x| x == 1)).unwrap();
+    let q = arr.find_mut(|&x| x == 1).unwrap();
     *q = *q + 9;
     println!("{:?}", *q);
+    ///
+    let mut a = vec![1, 2];
+    let mut count = 0;
+    a.for_each(|x| count += *x);
+    println!("{:?},{:?}", a.map(|x| [*x]), count);
     ///
     let box_p = Box::new([1, 231]);
     let mut p = *box_p;
