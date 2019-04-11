@@ -1,5 +1,5 @@
 #![allow(unused)]
-use leetcode::base::{num_to_string, string_to_num, Solution, TreeNode};
+use leetcode::base::{num_to_string, string_to_num, JsArray, Solution, TreeNode};
 use leetcode::longest_palindromic_substring;
 use std::cell::RefCell;
 use std::mem;
@@ -34,7 +34,12 @@ fn main() {
     let foo = Foo;
     static_dispatch(&foo);
     dynamic_dispatch(&foo);
-
+    ///
+    let mut arr = vec![1];
+    let q = arr.find_mut(Box::new(|&x| x == 1)).unwrap();
+    *q = *q + 9;
+    println!("{:?}", *q);
+    ///
     let box_p = Box::new([1, 231]);
     let mut p = *box_p;
     p[0] = 999;

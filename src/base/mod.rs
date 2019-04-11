@@ -81,3 +81,40 @@ pub fn string_to_num(s: String, d: i32) -> i32 {
 fn test_string_to_num() {
   assert_eq!(string_to_num("12".to_string(), 10), 12);
 }
+
+pub trait JsArray<T> {
+  // 方法从数组中删除第一个元素
+  fn shift(&mut self) -> Option<T>;
+  fn unshift(&mut self, elm: T);
+  fn find(&self, cb: Box<Fn(&T) -> bool>) -> Option<&T>;
+  fn find_mut(&mut self, cb: Box<Fn(&T) -> bool>) -> Option<&mut T>;
+}
+
+impl<T> JsArray<T> for Vec<T> {
+  fn shift(&mut self) -> Option<T> {
+    if self.len() == 0 {
+      return None;
+    } else {
+      return Some(self.remove(0));
+    }
+  }
+  fn unshift(&mut self, elm: T) {
+    self.insert(0, elm);
+  }
+  fn find(&self, cb: Box<Fn(&T) -> bool>) -> Option<&T> {
+    for i in self.iter() {
+      if cb(i) {
+        return Some(i);
+      }
+    }
+    return None;
+  }
+  fn find_mut(&mut self, cb: Box<Fn(&T) -> bool>) -> Option<&mut T> {
+    for i in self.iter_mut() {
+      if cb(i) {
+        return Some(i);
+      }
+    }
+    return None;
+  }
+}
