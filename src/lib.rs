@@ -2,6 +2,7 @@
 
 pub mod base;
 
+pub mod array_partition_i;
 pub mod baseball_game;
 mod best_time_to_buy_and_sell_stock;
 mod best_time_to_buy_and_sell_stock_ii;
@@ -30,9 +31,11 @@ pub mod ones_and_zeroes;
 mod path_sum;
 mod path_sum_iii;
 mod plus_one;
+pub mod remove_outermost_parentheses;
 mod repeated_string_match;
 mod robot_return_to_origin;
 mod search_in_a_binary_search_tree;
+pub mod search_in_rotated_sorted_array;
 mod search_insert_position;
 pub mod self_dividing_numbers;
 pub mod split_array_largest_sum;
@@ -45,5 +48,3 @@ pub mod unique_morse_code_words;
 pub mod unique_paths;
 mod univalued_binary_tree;
 pub mod valid_anagram;
-pub mod remove_outermost_parentheses;
-pub mod search_in_rotated_sorted_array;
