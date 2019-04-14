@@ -49,3 +49,4 @@ pub mod unique_paths;
 mod univalued_binary_tree;
 pub mod valid_anagram;
 pub mod hamming_distance;
+pub mod total_hamming_distance;
