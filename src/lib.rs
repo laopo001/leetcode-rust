@@ -48,3 +48,4 @@ pub mod unique_morse_code_words;
 pub mod unique_paths;
 mod univalued_binary_tree;
 pub mod valid_anagram;
+pub mod hamming_distance;
