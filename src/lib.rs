@@ -2,6 +2,7 @@
 
 pub mod base;
 
+pub mod array_partition_i;
 pub mod baseball_game;
 mod best_time_to_buy_and_sell_stock;
 mod best_time_to_buy_and_sell_stock_ii;
@@ -48,3 +49,7 @@ pub mod unique_paths;
 mod univalued_binary_tree;
 pub mod valid_anagram;
 pub mod maximum_binary_tree_ii;
+pub mod hamming_distance;
+pub mod total_hamming_distance;
+pub mod sum_of_two_integers;
+pub mod delete_columns_to_make_sorted;
