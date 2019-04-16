@@ -9,15 +9,16 @@ impl Solution {
     ) -> Option<Rc<RefCell<TreeNode>>> {
         if root == None {
             return Some(Rc::new(RefCell::new(TreeNode::new(val))));
-        } else {
-            if root.clone().unwrap().borrow().val < val {
-                let temp = Some(Rc::new(RefCell::new(TreeNode::new(val))));
-                temp.clone().unwrap().borrow_mut().left = root;
-                return temp;
-            }
         }
-        root.clone().unwrap().borrow_mut().right =
-            Solution::insert_into_max_tree(root.clone().unwrap().borrow().left.clone(), val);
-        return root;
+        let root = root.unwrap();
+        if root.borrow().val < val {
+            let temp = Some(Rc::new(RefCell::new(TreeNode::new(val))));
+            temp.clone().unwrap().borrow_mut().left = Some(root);
+            return temp;
+        }
+        let mut root_mut = root.borrow_mut();
+        root_mut.right = Solution::insert_into_max_tree(root_mut.right.clone(), val);
+        drop(root_mut);
+        return Some(root);
     }
 }
