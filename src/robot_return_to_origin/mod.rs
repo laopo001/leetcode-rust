@@ -3,6 +3,7 @@ use crate::base::{Solution, TreeNode};
 use std::collections::HashMap;
 
 impl Solution {
+    #[allow(mutable_borrow_reservation_conflict)]
     pub fn judge_circle(moves: String) -> bool {
         let mut map: HashMap<char, u32> = HashMap::new();
         map.insert('U', 0);
