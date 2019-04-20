@@ -1,6 +1,7 @@
 #![allow(unused)]
-use leetcode::base::{num_to_string, string_to_num, JsArray, Solution, TreeNode};
+use leetcode::base::{num_to_string, string_to_num, JsArray, ListNode, Solution, TreeNode};
 use leetcode::longest_palindromic_substring;
+use leetcode::remove_nth_node_from_end_of_list;
 use std::cell::RefCell;
 use std::mem;
 use std::rc::Rc;
@@ -75,4 +76,29 @@ fn main() {
         .collect::<Vec<_>>()
         .join(" ");
     println!("{}", s);
+    //
+    {
+        let l = ListNode {
+            val: 0,
+            next: Some(Box::new(ListNode { val: 1, next: None })),
+        };
+        // println!("{:?}", (*(l.next.unwrap())));
+        // let z = l.clone();
+        // let x = l.clone();
+        // println!("{:p}", &(*(x.next.unwrap())));
+        // println!("{:p}", &(*(z.next.unwrap())));
+        // dbg!(l == l.clone());
+
+        let mut arr: Vec<*const ListNode> = vec![];
+        let mut q = Some(Box::new(l));
+        let res = Solution::remove_nth_from_end2(q, 0);
+        println!("{:?}", res);
+        // while let Some(node) = q {
+        //     arr.push(&*node);
+        //     q = node.next;
+        // }
+        // unsafe {
+        //     println!("{:?}", *arr[0]);
+        // }
+    }
 }
