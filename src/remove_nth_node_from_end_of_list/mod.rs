@@ -5,31 +5,38 @@ impl Solution {
         let mut root = head;
         let mut arr: Vec<*mut ListNode> = vec![];
         while let Some(mut node) = root {
+            println!("{:?}", node.val);
             arr.push(node.as_mut());
             root = node.next;
         }
+        // unsafe {
+        //     for i in arr {
+        //         println!("{:?}", *i);
+        //     }
+        // }
         let len = arr.len();
-        // println!("{:?}", len);
         if len == 0 {
             return None;
         }
         unsafe {
-            // println!("{:?}", (*arr[0]).val);
             if len == n as usize {
                 return Some(Box::new((*arr[1]).clone()));
             }
-            let a = arr[len - n as usize - 2];
-            // println!("{:?}", len - n as usize - 2);
+            let a = arr[len - n as usize - 1];
+            println!("==={:?}", (*a).val);
             if n == 0 {
-                println!("123");
+                // println!("123");
+                println!("----{:?}", (*a).val);
                 (*a).next = None;
             } else {
-                let b = (*arr[len - n as usize]).clone();
-                (*a).next = Some(Box::new(b));
+                let b = arr[len - n as usize];
+                // println!("----{:?},{:?}", (*a).val, (*b).val);
+                // (*a).next = Some(Box::new(*b));
             }
-            println!("{:?}", (*arr[0]).val);
+            // println!("{:?}", (*arr[0]).val);
             return Some(Box::new((*arr[0]).clone()));
         }
+        // return None;
     }
     pub fn remove_nth_from_end3(head: Option<Box<ListNode>>, n: i32) -> Option<Box<ListNode>> {
         let mut root = head;

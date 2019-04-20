@@ -91,8 +91,24 @@ fn main() {
 
         let mut arr: Vec<*const ListNode> = vec![];
         let mut q = Some(Box::new(l));
-        let res = Solution::remove_nth_from_end2(q, 0);
+        let res = Solution::remove_nth_from_end2(q, 1);
         println!("{:?}", res);
+
+        let a: *mut i32 = &mut 1;
+        let b: *mut i32 = &mut 2;
+        let mut line: Vec<*mut i32> = vec![];
+        line.push(a);
+        line.push(b);
+
+        unsafe {
+            let a1 = line[0];
+            println!("{:?}", *a1);
+            let b1 = line[1];
+            // *b1 = 3;
+            let p = *b1;
+            *b1 = 3;
+            println!("{:?}", p);
+        }
         // while let Some(node) = q {
         //     arr.push(&*node);
         //     q = node.next;
