@@ -31,6 +31,30 @@ impl Solution {
             return Some(Box::new((*arr[0]).clone()));
         }
     }
+    pub fn remove_nth_from_end3(head: Option<Box<ListNode>>, n: i32) -> Option<Box<ListNode>> {
+        let mut root = head;
+        let mut arr: Vec<i32> = vec![];
+        while let Some(node) = root {
+            arr.push(node.val);
+            root = node.next;
+        }
+        arr.remove(arr.len() - n as usize);
+        // println!("{:?}", arr);
+        if arr.len() == 0 {
+            return None;
+        } else {
+            // let mut res = ListNode {
+            //     val: arr.remove(0),
+            //     next: None,
+            // };
+            let mut z = None;
+            arr.reverse();
+            for i in arr {
+                z = Some(Box::new(ListNode { val: i, next: z }));
+            }
+            return z;
+        }
+    }
     pub fn remove_nth_from_end(head: Option<Box<ListNode>>, n: i32) -> Option<Box<ListNode>> {
         let mut dummy_head = Some(Box::new(ListNode { val: 0, next: head }));
         let mut len = 0;
