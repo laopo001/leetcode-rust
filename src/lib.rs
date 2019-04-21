@@ -57,3 +57,4 @@ mod univalued_binary_tree;
 pub mod valid_anagram;
 pub mod count_primes;
 pub mod remove_nth_node_from_end_of_list;
+pub mod divisor_game;
