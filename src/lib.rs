@@ -58,3 +58,4 @@ pub mod valid_anagram;
 pub mod count_primes;
 pub mod remove_nth_node_from_end_of_list;
 pub mod divisor_game;
+pub mod swap_nodes_in_pairs;
