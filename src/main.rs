@@ -117,4 +117,17 @@ fn main() {
         //     println!("{:?}", *arr[0]);
         // }
     }
+    {
+        #[derive(Debug)]
+        struct A(i32);
+        let mut a = A(2);
+        let p_a: *mut A = &mut a;
+        unsafe {
+            (*p_a).0 = 4;
+            println!("A:{:?}", *p_a);
+            // let q = *p_a;
+            // println!("A:{:?}", q);
+        }
+        println!("A:{:?}", a);
+    }
 }
