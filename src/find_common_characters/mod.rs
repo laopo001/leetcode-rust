@@ -43,6 +43,7 @@ impl Solution {
         }
         return res;
     }
+    // 利用数组下标，读取更快
     pub fn common_chars2(a: Vec<String>) -> Vec<String> {
         if a.len() == 0 {
             return a;
