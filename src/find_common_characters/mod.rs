@@ -16,12 +16,10 @@ impl Solution {
             } else {
                 map.insert(c, 1);
             }
-
         }
         for item in a {
             let mut map2: HashMap<char, usize> = HashMap::new();
             for c in item.chars() {
-
                 if map.contains_key(&c) {
                     let t = map2.get(&c);
                     if t != None {
@@ -50,16 +48,17 @@ impl Solution {
             return a;
         }
         let mut a = a;
-        let mut map: Vec<usize> = vec![25; 0];
+        let mut map: Vec<usize> = vec![0; 26];
         let first = a.remove(0);
         for c in first.as_bytes() {
             let t = map[*c as usize - b'a' as usize];
             map[*c as usize - b'a' as usize] = t + 1;
         }
+
         for item in a {
-            let mut map2: Vec<usize> = vec![25; 0];
+            let mut map2: Vec<usize> = vec![0; 26];
             for c in item.as_bytes() {
-                if map[*c as usize] != 0 {
+                if map[*c as usize - b'a' as usize] != 0 {
                     let t = map2[*c as usize - b'a' as usize];
                     map2[*c as usize - b'a' as usize] = t + 1;
                 }
@@ -73,7 +72,7 @@ impl Solution {
         let mut res: Vec<String> = vec![];
         for (c, size) in map.iter().enumerate() {
             for _ in 0..(*size) {
-                res.push(String::from_utf8(vec![c as u8]).unwrap());
+                res.push(String::from_utf8(vec![c as u8 + b'a']).unwrap());
             }
         }
         return res;

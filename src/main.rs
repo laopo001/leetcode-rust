@@ -1,5 +1,6 @@
 #![allow(unused)]
 use leetcode::base::{num_to_string, string_to_num, JsArray, ListNode, Solution, TreeNode};
+use leetcode::find_common_characters;
 use leetcode::longest_palindromic_substring;
 use leetcode::remove_nth_node_from_end_of_list;
 use std::cell::RefCell;
@@ -129,5 +130,9 @@ fn main() {
             // println!("A:{:?}", q);
         }
         println!("A:{:?}", a);
+    }
+    {
+        let a = Solution::common_chars2(vec!["bella".to_string()]);
+        println!("a:{:?}", a);
     }
 }
