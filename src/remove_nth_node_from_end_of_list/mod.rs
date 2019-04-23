@@ -29,7 +29,7 @@ impl Solution {
                 println!("----{:?}", (*a).val);
                 (*a).next = None;
             } else {
-                let b = arr[len - n as usize];
+                let _ = arr[len - n as usize];
                 // println!("----{:?},{:?}", (*a).val, (*b).val);
                 // (*a).next = Some(Box::new(*b));
             }

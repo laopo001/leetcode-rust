@@ -1,7 +1,9 @@
 use crate::base::Solution;
 use std::collections::HashMap;
 
+
 impl Solution {
+    #[allow(mutable_borrow_reservation_conflict)]
     pub fn common_chars(a: Vec<String>) -> Vec<String> {
         if a.len() == 0 {
             return a;

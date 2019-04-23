@@ -125,7 +125,7 @@ fn main() {
         let p_a: *mut A = &mut a;
         unsafe {
             (*p_a).0 = 4;
-            println!("A:{:?}", *p_a);
+            println!("A:{:?}", (*p_a).0);
             // let q = *p_a;
             // println!("A:{:?}", q);
         }

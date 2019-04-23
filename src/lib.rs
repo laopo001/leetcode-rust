@@ -1,4 +1,4 @@
-#![feature(vec_remove_item)]
+#![feature(vec_remove_item, box_syntax, box_patterns)]
 
 pub mod base;
 
@@ -10,10 +10,10 @@ pub mod best_time_to_buy_and_sell_stock_with_cooldown;
 mod binary_gap;
 mod binary_tree_maximum_path_sum;
 mod count_and_say;
-pub mod delete_columns_to_make_sorted;
+pub mod count_primes;
 pub mod di_string_match;
-pub mod find_all_duplicates_in_an_array;
-mod flipping_an_image;
+pub mod divisor_game;
+pub mod find_common_characters;
 mod friend_circles;
 pub mod hamming_distance;
 pub mod insert_into_a_binary_search_tree;
@@ -34,7 +34,7 @@ pub mod ones_and_zeroes;
 mod path_sum;
 mod path_sum_iii;
 mod plus_one;
-pub mod remove_outermost_parentheses;
+pub mod remove_nth_node_from_end_of_list;
 mod repeated_string_match;
 mod robot_return_to_origin;
 mod search_in_a_binary_search_tree;
@@ -48,15 +48,10 @@ pub mod stone_game;
 pub mod sum_of_two_integers;
 mod sum_root_to_leaf_numbers;
 mod surface_area_of_3d_shapes;
-mod to_lower_case;
-pub mod total_hamming_distance;
+pub mod swap_nodes_in_pairs;
+pub mod top_k_frequent_elements;
 mod unique_email_addresses;
 pub mod unique_morse_code_words;
 pub mod unique_paths;
 mod univalued_binary_tree;
 pub mod valid_anagram;
-pub mod count_primes;
-pub mod remove_nth_node_from_end_of_list;
-pub mod divisor_game;
-pub mod swap_nodes_in_pairs;
-pub mod find_common_characters;
