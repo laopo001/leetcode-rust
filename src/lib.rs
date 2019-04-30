@@ -58,3 +58,4 @@ pub mod valid_anagram;
 pub mod reverse_words_in_a_string_iii;
 pub mod range_sum_of_bst;
 pub mod peak_index_in_a_mountain_array;
+pub mod sort_colors;
