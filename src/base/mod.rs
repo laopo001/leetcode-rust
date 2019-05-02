@@ -220,3 +220,34 @@ fn test_reduce() {
     let mut arr = vec![1, 2];
     assert_eq!(A(3), arr.reduce(|x, y| A(x.0 + y), A(0)));
 }
+
+pub trait Context {
+    fn read(&self);
+}
+
+struct Book {}
+impl Book {
+    fn new() -> Self {
+        return Book {};
+    }
+}
+
+impl Context for Book {
+    fn read(&self) {
+        println!("read");
+    }
+}
+
+
+struct BookPlus<T> {
+    book: T,
+}
+
+impl<T: Context> BookPlus<T> {
+    fn new() -> BookPlus<Book> {
+        BookPlus { book: Book::new() }
+    }
+    fn test(&self) {
+        self.book.read();
+    }
+}
