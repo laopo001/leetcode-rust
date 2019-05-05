@@ -57,3 +57,4 @@ pub mod unique_paths;
 mod univalued_binary_tree;
 pub mod valid_anagram;
 pub mod number_of_recent_calls;
+pub mod valid_parentheses;

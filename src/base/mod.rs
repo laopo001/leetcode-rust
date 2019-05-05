@@ -222,32 +222,39 @@ fn test_reduce() {
 }
 
 pub trait Context {
-    fn read(&self);
+    type Output;
+    fn read(&self) -> Self::Output;
 }
 
 struct Book {}
-impl Book {
-    fn new() -> Self {
-        return Book {};
-    }
-}
-
 impl Context for Book {
-    fn read(&self) {
+    type Output = i32;
+    fn read(&self) -> Self::Output {
         println!("read");
+        0
     }
 }
 
-
-struct BookPlus<T> {
-    book: T,
+struct Phone {}
+impl Context for Phone {
+    type Output = u32;
+    fn read(&self) -> Self::Output {
+        println!("read");
+        0
+    }
 }
 
-impl<T: Context> BookPlus<T> {
-    fn new() -> BookPlus<Book> {
-        BookPlus { book: Book::new() }
+struct Data<T:Context> {
+    out:T::Output, // 这个类型怎么填
+}
+impl<T:Context> Data<T> {
+    fn new(a:T) -> Self {
+        let out =  a.read();
+        Data {out}
     }
-    fn test(&self) {
-        self.book.read();
-    }
+}
+
+fn test(){
+    let a = Data::new(Phone{});
+    let b = a.out;
 }
