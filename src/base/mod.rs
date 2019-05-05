@@ -251,3 +251,10 @@ impl<T: Context> BookPlus<T> {
         self.book.read();
     }
 }
+
+
+// fn add(parent: Rc<RefCell<Node>>, child :  Rc<RefCell<Node>>){
+
+// } 
+
+// Node::add(parent,child)
