@@ -254,7 +254,9 @@ impl<T:Context> Data<T> {
     }
 }
 
-fn test(){
-    let a = Data::new(Phone{});
-    let b = a.out;
-}
+
+// fn add(parent: Rc<RefCell<Node>>, child :  Rc<RefCell<Node>>){
+
+// } 
+
+// Node::add(parent,child)
