@@ -30,7 +30,7 @@ pub mod merge_two_sorted_lists;
 mod minimum_depth_of_binary_tree;
 mod n_repeated_element_in_size_2n_array;
 pub mod number_complement;
-pub mod ones_and_zeroes;
+pub mod number_of_recent_calls;
 mod path_sum;
 mod path_sum_iii;
 pub mod peak_index_in_a_mountain_array;
@@ -56,5 +56,6 @@ pub mod unique_morse_code_words;
 pub mod unique_paths;
 mod univalued_binary_tree;
 pub mod valid_anagram;
-pub mod number_of_recent_calls;
+
 pub mod valid_parentheses;
+pub mod word_pattern;

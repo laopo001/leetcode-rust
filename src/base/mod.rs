@@ -244,19 +244,20 @@ impl Context for Phone {
     }
 }
 
-struct Data<T:Context> {
-    out:T::Output, // 这个类型怎么填
+struct Data<T: Context> {
+    out: T::Output, // 这个类型怎么填
 }
-impl<T:Context> Data<T> {
-    fn new(a:T) -> Self {
-        let out =  a.read();
-        Data {out}
+impl<T: Context> Data<T> {
+    fn new(a: T) -> Self {
+        let b: Vec<u32> = (1..5).into_iter().rev().collect();
+        let out = a.read();
+        Data { out }
     }
 }
 
 
 // fn add(parent: Rc<RefCell<Node>>, child :  Rc<RefCell<Node>>){
 
-// } 
+// }
 
 // Node::add(parent,child)
