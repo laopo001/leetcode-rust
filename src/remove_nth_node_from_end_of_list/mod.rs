@@ -1,42 +1,29 @@
 use crate::base::{ListNode, Solution};
 
 impl Solution {
+    // error
     pub fn remove_nth_from_end2(head: Option<Box<ListNode>>, n: i32) -> Option<Box<ListNode>> {
-        let mut root = head;
-        let mut arr: Vec<*mut ListNode> = vec![];
-        while let Some(mut node) = root {
-            println!("{:?}", node.val);
-            arr.push(node.as_mut());
-            root = node.next;
-        }
-        // unsafe {
-        //     for i in arr {
-        //         println!("{:?}", *i);
-        //     }
-        // }
-        let len = arr.len();
-        if len == 0 {
-            return None;
-        }
         unsafe {
-            if len == n as usize {
-                return Some(Box::new((*arr[1]).clone()));
+            let mut head = head;
+            let mut front: *mut Option<Box<ListNode>> = &mut head;
+            let mut tail: *mut Option<Box<ListNode>> = &mut head;
+            for _ in 0..n {
+                front = &mut (*front).as_mut().unwrap().next;
             }
-            let a = arr[len - n as usize - 1];
-            println!("==={:?}", (*a).val);
-            if n == 0 {
-                // println!("123");
-                println!("----{:?}", (*a).val);
-                (*a).next = None;
-            } else {
-                let _ = arr[len - n as usize];
-                // println!("----{:?},{:?}", (*a).val, (*b).val);
-                // (*a).next = Some(Box::new(*b));
+            if (*front).is_none() {
+                return head.take().unwrap().next;
             }
-            // println!("{:?}", (*arr[0]).val);
-            return Some(Box::new((*arr[0]).clone()));
+            loop {
+                front = &mut (*front).as_mut().unwrap().next;
+                if (*front).is_none() {
+                    break;
+                }
+                tail = &mut (*tail).as_mut().unwrap().next;
+            }
+            (*tail).as_mut().unwrap().next =
+                (*tail).as_mut().unwrap().next.as_mut().unwrap().next.take();
+            head
         }
-        // return None;
     }
     pub fn remove_nth_from_end3(head: Option<Box<ListNode>>, n: i32) -> Option<Box<ListNode>> {
         let mut root = head;
@@ -46,14 +33,9 @@ impl Solution {
             root = node.next;
         }
         arr.remove(arr.len() - n as usize);
-        // println!("{:?}", arr);
         if arr.len() == 0 {
             return None;
         } else {
-            // let mut res = ListNode {
-            //     val: arr.remove(0),
-            //     next: None,
-            // };
             let mut z = None;
             arr.reverse();
             for i in arr {
