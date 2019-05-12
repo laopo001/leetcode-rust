@@ -57,5 +57,5 @@ pub mod unique_paths;
 mod univalued_binary_tree;
 pub mod valid_anagram;
 
-pub mod valid_parentheses;
+pub mod kth_largest_element_in_a_stream;
 pub mod word_pattern;
