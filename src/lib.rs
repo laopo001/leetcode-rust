@@ -60,3 +60,4 @@ pub mod valid_anagram;
 pub mod kth_largest_element_in_a_stream;
 pub mod word_pattern;
 pub mod sliding_window_maximum;
+pub mod fibonacci_number;
