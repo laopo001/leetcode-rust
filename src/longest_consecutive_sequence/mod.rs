@@ -8,20 +8,34 @@ impl Solution {
 			map.insert(*item, 1);
 		}
 		let mut res = 0;
-		// Repeatedly try this test.
 		unsafe {
 			for item in map.iter() {
-//			map.remove(item.0);
-				while let Some(v) = map.get(&(*item.0 + 1)) {
-					std::mem::transmute::<&usize, &mut usize>(item.1);
-					if *v == 0 {
-						*item.1 += 1;
+				let mut i = *item.0;
+				if *item.1 == 0 {
+					continue;
+				}
+				let t = std::mem::transmute::<*const _, *mut usize>(item.1);
+				while let Some(v) = map.get(&(i + 1)) {
+					let v = std::mem::transmute::<*const _, *mut usize>(v);
+					if *v == 1 {
+						*t += 1;
+						*v = 0;
+						i += 1;
 					} else {
-						*item.1 += v;
+						*t += *v;
+						*v = 0;
+						break;
 					}
 				}
+				res = std::cmp::max(res, *t);
 			}
 		}
-		0
+		res as i32
 	}
+}
+
+#[test]
+fn test() {
+	let x = Solution::longest_consecutive(vec![100, 4, 200, 1, 3, 2]);
+	assert_eq!(x, 4);
 }
