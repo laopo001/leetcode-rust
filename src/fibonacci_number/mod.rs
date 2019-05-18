@@ -6,7 +6,7 @@ impl Solution {
 		if n == 0 || n == 1 {
 			return n;
 		}
-		let mut res = 0;
+//		let mut res = 0;
 		let mut map: HashMap<usize, i32> = HashMap::new();
 		map.insert(0, 0);
 		map.insert(1, 1);

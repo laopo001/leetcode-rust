@@ -62,3 +62,4 @@ pub mod word_pattern;
 pub mod sliding_window_maximum;
 pub mod fibonacci_number;
 pub mod longest_consecutive_sequence;
+pub mod squares_of_a_sorted_array;
