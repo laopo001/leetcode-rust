@@ -65,3 +65,4 @@ pub mod squares_of_a_sorted_array;
 pub mod intersection_of_two_arrays_ii;
 pub mod intersection_of_two_arrays;
 pub mod arranging_coins;
+pub mod beautiful_arrangement_ii;

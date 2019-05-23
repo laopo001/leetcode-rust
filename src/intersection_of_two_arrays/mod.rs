@@ -31,7 +31,7 @@ impl Solution {
 		let map1 = vec_to_map(&nums1);
 		let map2 = vec_to_map(&nums2);
 		let mut res: Vec<i32> = vec![];
-		for (key, value) in map1 {
+		for (key, _value) in map1 {
 			if map2.contains_key(&key) {
 				res.push(key);
 			}
