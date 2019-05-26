@@ -30,8 +30,3 @@ impl Solution {
 		copy
 	}
 }
-
-#[test]
-fn test() {
-	assert_eq!(Solution::beautiful_array(4), [2, 1, 4, 3]);
-}
