@@ -68,3 +68,4 @@ pub mod arranging_coins;
 pub mod beautiful_arrangement_ii;
 pub mod beautiful_arrangement;
 pub mod beautiful_array;
+pub mod sort_array_by_parity;
