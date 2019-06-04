@@ -71,3 +71,4 @@ pub mod beautiful_array;
 pub mod sort_array_by_parity;
 pub mod height_checker;
 pub mod minimum_absolute_difference_in_bst;
+pub mod majority_element;
