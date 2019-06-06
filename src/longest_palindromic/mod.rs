@@ -1,5 +1,4 @@
 use crate::base::Solution;
-use std::collections::HashMap;
 
 impl Solution {
 	// 0ms
