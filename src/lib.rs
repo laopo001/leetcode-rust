@@ -74,3 +74,4 @@ pub mod minimum_absolute_difference_in_bst;
 pub mod majority_element;
 pub mod longest_palindromic;
 pub mod leaf_similar_trees;
+pub mod counting_bits;
