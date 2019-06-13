@@ -76,3 +76,4 @@ pub mod longest_palindromic;
 pub mod leaf_similar_trees;
 pub mod counting_bits;
 pub  mod ugly_number_ii;
+pub mod coin_change;
