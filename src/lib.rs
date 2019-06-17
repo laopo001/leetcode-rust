@@ -79,3 +79,4 @@ pub mod ugly_number_ii;
 pub mod coin_change;
 pub mod unique_paths_ii;
 pub mod minimum_cost_for_tickets;
+pub mod maximum_product_subarray;
