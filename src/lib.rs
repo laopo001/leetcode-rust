@@ -78,3 +78,4 @@ pub mod counting_bits;
 pub mod ugly_number_ii;
 pub mod coin_change;
 pub mod unique_paths_ii;
+pub mod minimum_cost_for_tickets;
