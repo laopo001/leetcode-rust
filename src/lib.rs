@@ -80,3 +80,4 @@ pub mod coin_change;
 pub mod unique_paths_ii;
 pub mod minimum_cost_for_tickets;
 pub mod maximum_product_subarray;
+pub mod palindromic_substrings;
