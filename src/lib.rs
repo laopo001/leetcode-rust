@@ -82,3 +82,4 @@ pub mod minimum_cost_for_tickets;
 pub mod maximum_product_subarray;
 pub mod palindromic_substrings;
 pub mod best_time_to_buy_and_sell_stock_iii;
+pub mod maximum_length_of_repeated_subarray;
