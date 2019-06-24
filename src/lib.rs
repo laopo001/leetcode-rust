@@ -86,3 +86,4 @@ pub mod best_time_to_buy_and_sell_stock_iii;
 pub mod maximum_length_of_repeated_subarray;
 pub mod longest_continuous_increasing_subsequence;
 pub mod number_of_longest_increasing_subsequence;
+pub mod longest_arithmetic_sequence;
