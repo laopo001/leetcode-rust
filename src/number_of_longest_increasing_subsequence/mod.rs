@@ -8,21 +8,31 @@ impl Solution {
 			return 0;
 		}
 		let mut dp = vec![1; len];
+		let mut cnt = vec![1; len];
 		let mut res = 0;
 		let mut sum = 1;
 		for i in 0..len {
+			let mut first = false;
 			for j in 0..i {
 				if nums[j] < nums[i] {
-					dp[i] = max(dp[j] + 1, dp[i]);
+					if dp[i] == dp[j] + 1 {
+						cnt[i] += cnt[j];
+					}
+					if dp[i] < dp[j] + 1 {
+						dp[i] = dp[j] + 1;
+						cnt[i] = cnt[j];
+					}
+//					dp[i] = max(dp[j] + 1, dp[i]);
 				}
 			}
-			if dp[i] > res {
+//			res = max(dp[i], res);
+			if res < dp[i] {
 				res = dp[i];
-			} else if dp[i] == res {
-				sum += 1;
+				sum = cnt[i];
+			} else if res == dp[i] {
+				sum += cnt[i];
 			}
 		}
-		println!("{:?}", dp);
 		sum
 	}
 }
