@@ -1,8 +1,9 @@
-use crate::base::Solution;
+//use crate::base::Solution;
+struct Solution;
 
 impl Solution {
 	// 0ms
-	pub fn longest_palindrome3(s: String) -> i32 {
+	pub fn longest_palindromelongest_palindrome(s: String) -> i32 {
 		let mut map: Vec<usize> = vec![0; 256];
 		for i in s.as_bytes() {
 			let item = &mut map[(*i as usize)];
@@ -15,7 +16,7 @@ impl Solution {
 			res += x - temp;
 			if b && temp != 0 {
 				b = false;
-				res+=1;
+				res += 1;
 			}
 		}
 		res as i32
