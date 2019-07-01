@@ -42,3 +42,52 @@ var findAnagrams = function (s, p) {
     }
     return res;
 };
+
+var findAnagrams = function (s, p) {
+    if (p.length > s.length) {
+        return [];
+    }
+    let obj = {};
+    let len = p.length;
+    function run(str) {
+        for (let i = 0; i < str.length; i++) {
+            if (obj[str[i]] == null) {
+                obj[str[i]] = 1;
+            } else {
+                obj[str[i]]++;
+            }
+        }
+    }
+    run(p);
+
+    let res = [];
+    let map = {};
+    for (let k in obj) {
+        map[k] = obj[k];
+    }
+    let q = 0;
+    for (let i = 0; i < s.length; i++) {
+        if (obj[s[i]] == null) {
+            for (let k in map) {
+                obj[k] = map[k];
+            }
+            q = 0;
+            continue;
+        } else {
+            q += 1;
+            obj[s[i]] -= 1;
+        }
+        let b = true;
+        for (let k in obj) {
+            b = b && obj[k] == 0;
+        }
+        if (b) {
+            res.push(i + 1 - len);
+        }
+        if (q >= len) {
+            let z = s[i + 1 - len];
+            obj[z] += 1;
+        }
+    }
+    return res;
+};
