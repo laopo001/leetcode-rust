@@ -32,6 +32,7 @@ pub mod intersection_of_two_arrays_ii;
 mod isomorphic_strings;
 mod keyboard_row;
 pub mod kth_largest_element_in_a_stream;
+pub mod last_stone_weight;
 pub mod leaf_similar_trees;
 pub mod longest_arithmetic_sequence;
 pub mod longest_consecutive_sequence;
