@@ -3,7 +3,7 @@
  * @return {number}
  */
 var lengthOfLIS = function (nums) {
-    let res = 1;
+    let res = -Infinity;
     let map = {};
     function run(nums) {
         let len = nums.length;
@@ -19,7 +19,7 @@ var lengthOfLIS = function (nums) {
         let max = 1;
         for (let i = 0; i < len - 1; i++) {
             if (nums[i] < nums[len - 1]) {
-                max = Math.max(max, lengthOfLIS(nums.slice(0, i + 1)) + 1)
+                max = Math.max(max, run(nums.slice(0, i + 1)) + 1)
                 res = Math.max(res, max)
             }
         }
@@ -29,8 +29,10 @@ var lengthOfLIS = function (nums) {
         console.log(nums, max)
         return max;
     }
-    run(nums);
+    // run(nums);
+    for (let i = 0; i < nums.length; i++) {
+        run(nums.slice(0, i + 1))
+    }
     return res;
 };
-
 // [4,10,4,3,8,9]
