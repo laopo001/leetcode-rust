@@ -13,7 +13,7 @@ impl Solution {
         for i in 0..len {
             let z = stones[i];
             for j in (z..=sum / 2).rev() {
-                f[j as usize] = f[j as usize] | f[j as usize - stones[i] as usize];
+                f[j as usize] = f[j as usize] || f[j as usize - stones[i] as usize];
             }
         }
         for i in (0..=sum / 2).rev() {
