@@ -92,3 +92,4 @@ pub mod unique_paths_ii;
 mod univalued_binary_tree;
 pub mod valid_anagram;
 pub mod word_pattern;
+pub mod triangle;
