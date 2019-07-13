@@ -95,3 +95,4 @@ pub mod word_pattern;
 pub mod triangle;
 pub mod island_perimeter;
 pub mod powx_n;
+pub mod powerful_integers;
