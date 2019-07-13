@@ -96,3 +96,4 @@ pub mod triangle;
 pub mod island_perimeter;
 pub mod powx_n;
 pub mod powerful_integers;
+pub mod remove_duplicates_from_sorted_list;
