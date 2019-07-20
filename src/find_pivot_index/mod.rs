@@ -2,9 +2,9 @@ use crate::base::Solution;
 use std::collections::HashMap;
 
 
-fn sum_nums(l: usize, r: usize, nums: &Vec<i32>, map: &mut HashMap<(usize, usize), i32>) -> i32 {
-	if map.contains_key(&(l, r)) {
-		return *map.get(&(l, r)).unwrap();
+fn sum_nums(l: usize, r: usize, nums: &Vec<i32>, map: &mut Vec<Vec<Option<i32>>>) -> i32 {
+	if map[l][r].is_some() {
+		return map[l][r].unwrap();
 	}
 	if r <= l {
 		return 0;
@@ -15,7 +15,7 @@ fn sum_nums(l: usize, r: usize, nums: &Vec<i32>, map: &mut HashMap<(usize, usize
 	} else {
 		res = nums[l] + sum_nums(l + 1, r, nums, map);
 	}
-	map.insert((l, r),res);
+	map[l][r] = Some(res);
 	return res;
 }
 
@@ -24,7 +24,8 @@ impl Solution {
 	pub fn pivot_index(nums: Vec<i32>) -> i32 {
 		let len = nums.len();
 		let mut res = -1;
-		let mut map: HashMap<(usize, usize), i32> = HashMap::new();
+//		let mut map: HashMap<(usize, usize), i32> = HashMap::new();
+		let mut map: Vec<Vec<Option<i32>>> = vec![vec![None; len]; len];
 		for i in 0..len {
 			if sum_nums(0, i, &nums, &mut map) == sum_nums(i + 1, len, &nums, &mut map) {
 				res = i as i32;
