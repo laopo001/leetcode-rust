@@ -97,4 +97,7 @@ pub mod island_perimeter;
 pub mod powx_n;
 pub mod powerful_integers;
 pub mod remove_duplicates_from_sorted_list;
+pub mod most_common_word;
+pub mod reverse_vowels_of_a_string;
+pub mod find_pivot_index;
 pub mod spiral_matrix;
