@@ -142,8 +142,13 @@ fn main() {
 		let t = v.get(0..2).unwrap();
 		let v: Vec<i32> = t.to_vec();
 		let vec = vec![1, 2, 3, 4];
-		let v: Vec<i32>  = vec.as_slice()[0..1].to_vec();
+		let v: Vec<i32> = vec.as_slice()[0..1].to_vec();
 		assert_eq!(None, v.get(3));
 		assert_eq!(None, v.get(0..4));
+	}
+	{
+		let a = -1;
+		let b = a as usize;
+		println!("b:{:?}", b);
 	}
 }
