@@ -103,3 +103,4 @@ pub mod find_pivot_index;
 pub mod spiral_matrix;
 pub mod spiral_matrix_ii;
 pub mod spiral_matrix_iii;
+pub mod nth_digit;
