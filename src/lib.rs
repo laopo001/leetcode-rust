@@ -104,3 +104,4 @@ pub mod spiral_matrix;
 pub mod spiral_matrix_ii;
 pub mod spiral_matrix_iii;
 pub mod nth_digit;
+pub mod valid_perfect_square;
