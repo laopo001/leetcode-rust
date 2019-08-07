@@ -9,16 +9,6 @@
  *    this.bottomRight = bottomRight;
  * };
  */
-function run(quadTree1, quadTree2) {
-    run(quadTree1.topLeft, quadTree2.topLeft);
-    run(quadTree1.topRight, quadTree2.topRight);
-    run(quadTree1.bottomLeft, quadTree2.bottomLeft);
-    run(quadTree1.bottomRight, quadTree2.bottomRight);
-    if (quadTree1 != null && quadTree1.val) {
-        return quadTree1;
-    }
-    return quadTree2;
-}
 
 /**
  * @param {Node} quadTree1
@@ -26,10 +16,24 @@ function run(quadTree1, quadTree2) {
  * @return {Node}
  */
 var intersect = function (quadTree1, quadTree2) {
-    return new Node(quadTree1.val && quadTree2.val, false,
-        run(quadTree1.topLeft, quadTree2.topLeft),
-        run(quadTree1.topRight, quadTree2.topRight),
-        run(quadTree1.bottomLeft, quadTree2.bottomLeft),
-        run(quadTree1.bottomRight, quadTree2.bottomRight),
-    );
+    if (quadTree1.isLeaf) {
+        return quadTree1.val ? quadTree1 : quadTree2;
+    }
+
+    if (quadTree2.isLeaf) {
+        return quadTree2.val ? quadTree2 : quadTree1;
+    }
+
+    let topLeft = intersect(quadTree1.topLeft, quadTree2.topLeft);
+    let topRight = intersect(quadTree1.topRight, quadTree2.topRight);
+    let bottomLeft = intersect(quadTree1.bottomLeft, quadTree2.bottomLeft);
+    let bottomRight = intersect(quadTree1.bottomRight, quadTree2.bottomRight);
+
+    // Detect a merger state when all 4 leaves have same value.
+    if (topLeft.isLeaf && topRight.isLeaf && bottomLeft.isLeaf && bottomRight.isLeaf &&
+        topLeft.val == topRight.val && topRight.val == bottomLeft.val && bottomLeft.val == bottomRight.val) {
+        return new Node(topLeft.val, true, null, null, null, null);
+    } else {
+        return new Node(false, false, topLeft, topRight, bottomLeft, bottomRight)
+    }
 };
