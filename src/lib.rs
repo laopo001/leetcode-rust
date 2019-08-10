@@ -106,3 +106,4 @@ pub mod spiral_matrix_iii;
 pub mod nth_digit;
 pub mod valid_perfect_square;
 pub mod maximize_distance_to_closest_person;
+pub mod convert_a_number_to_hexadecimal;
