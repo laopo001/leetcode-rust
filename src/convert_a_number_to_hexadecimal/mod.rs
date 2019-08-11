@@ -1,10 +1,13 @@
 use crate::base::Solution;
 use std::collections::HashMap;
+use std::ops::{Div, Rem, Sub};
 
-fn num_to_vec(n: i64, d: i64) -> Vec<i64> {
-	let mut res: Vec<i64> = vec![];
+fn num_to_vec<T>(n: T, d: T) -> Vec<T>
+	where T: Div<Output=T> + Rem<Output=T> + Copy + Sub<Output=T> + std::cmp::PartialEq + From<i32>
+{
+	let mut res: Vec<T> = vec![];
 	let mut n = n;
-	while n != 0 {
+	while n != T::from(0) {
 		let t = n % d;
 		res.push(t);
 		n = (n - t) / d;
@@ -22,7 +25,7 @@ impl Solution {
 			return "0".to_string();
 		}
 		if num < 0 {
-			num = -(2*std::i32::MIN as i64 - num);
+			num = -(2 * std::i32::MIN as i64 - num);
 		}
 		let mut map: HashMap<i64, &str> = HashMap::new();
 		map.insert(0, "0");
