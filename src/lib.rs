@@ -110,3 +110,5 @@ pub mod convert_a_number_to_hexadecimal;
 pub mod license_key_formatting;
 pub mod longest_harmonious_subsequence;
 pub mod length_of_last_word;
+pub mod second_minimum_node_in_a_binary_tree;
+pub mod add_to_array_form_of_integer;
