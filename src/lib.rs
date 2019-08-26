@@ -109,3 +109,4 @@ pub mod maximize_distance_to_closest_person;
 pub mod convert_a_number_to_hexadecimal;
 pub mod license_key_formatting;
 pub mod longest_harmonious_subsequence;
+pub mod length_of_last_word;
