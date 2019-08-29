@@ -19,6 +19,7 @@ fn run(nums: Vec<i32>, num: i32) -> Vec<Vec<i32>> {
 }
 
 impl Solution {
+    // 132 ms, faster than 7.14%
     pub fn permute_unique(nums: Vec<i32>) -> Vec<Vec<i32>> {
         if nums.len() == 1 {
             return vec![vec![nums[0]]];
@@ -38,7 +39,7 @@ impl Solution {
         let mut map: HashMap<String, bool> = HashMap::new();
         let mut q: Vec<Vec<i32>> = vec![];
         for item in res {
-            let s = item.iter().map(|x| { x.to_string() }).collect::<Vec<String>>().join("-");
+            let s = item.iter().map(|x| { x.to_string() }).collect::<Vec<String>>().join("-").to_string();
             if !map.get(&s).unwrap_or(&false) {
                 map.insert(s, true);
                 q.push(item);
