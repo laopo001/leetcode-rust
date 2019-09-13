@@ -114,3 +114,4 @@ pub mod second_minimum_node_in_a_binary_tree;
 pub mod add_to_array_form_of_integer;
 pub mod permutations_ii;
 pub mod valid_sudoku;
+pub mod zigzag_conversion;
