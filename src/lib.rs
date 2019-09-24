@@ -115,3 +115,4 @@ pub mod add_to_array_form_of_integer;
 pub mod permutations_ii;
 pub mod valid_sudoku;
 pub mod zigzag_conversion;
+pub mod divide_two_integers;
