@@ -28,6 +28,7 @@ pub mod fibonacci_number;
 pub mod find_common_characters;
 pub mod find_pivot_index;
 mod friend_circles;
+pub mod group_anagrams;
 pub mod hamming_distance;
 pub mod height_checker;
 pub mod increasing_order_search_tree;
