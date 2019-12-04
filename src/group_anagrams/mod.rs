@@ -3,27 +3,13 @@ use std::collections::hash_map::DefaultHasher;
 use std::collections::HashMap;
 use std::hash::{Hash, Hasher};
 
-fn format(s: String, res_map: &mut HashMap<String, Vec<String>>) {
-    let mut map: HashMap<u8, usize> = HashMap::new();
-    for c in s.bytes() {
-        if map.contains_key(&c) {
-            *map.get_mut(&c).unwrap() += 1;
-        } else {
-            map.insert(c, 1);
-        }
-    }
-    let mut vec: Vec<(u8, usize)> = vec![];
-    for c in map {
-        vec.push((c.0, c.1));
-    }
-    vec.sort_by(|a, b| a.0.partial_cmp(&b.0).unwrap());
-    let mut key = "".to_string();
-    for (k, v) in vec {
-        key = key + &k.to_string() + &v.to_string();
-    }
-    // let mut hasher = DefaultHasher::new();
-    // vec.hash(&mut hasher);
-    // let key = hasher.finish();
+fn format(s: String, res_map: &mut HashMap<u64, Vec<String>>) {
+    let mut temp_s = s.clone();
+    let vec = unsafe { temp_s.as_mut_vec() };
+    vec.sort_by(|a, b| a.partial_cmp(&b).unwrap());
+    let mut hasher = DefaultHasher::new();
+    vec.hash(&mut hasher);
+    let key = hasher.finish();
     if res_map.contains_key(&key) {
         let m = res_map.get_mut(&key).unwrap();
         m.push(s);
@@ -32,16 +18,13 @@ fn format(s: String, res_map: &mut HashMap<String, Vec<String>>) {
     }
 }
 
+//Runtime: 12 ms, faster than 95.00%
 impl Solution {
     pub fn group_anagrams(strs: Vec<String>) -> Vec<Vec<String>> {
-        let mut map: HashMap<String, Vec<String>> = HashMap::new();
+        let mut map: HashMap<u64, Vec<String>> = HashMap::new();
         for s in strs {
             format(s, &mut map);
         }
-        let mut vec: Vec<Vec<String>> = vec![];
-        for (_, value) in map {
-            vec.push(value);
-        }
-        vec
+        map.drain().map(|(_, v)| v).collect()
     }
 }
