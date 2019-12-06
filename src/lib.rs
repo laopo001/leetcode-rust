@@ -85,6 +85,7 @@ pub mod remove_nth_node_from_end_of_list;
 pub mod reverse_vowels_of_a_string;
 pub mod reverse_words_in_a_string_iii;
 pub mod rotate_array;
+pub mod rotate_image;
 pub mod search_in_rotated_sorted_array;
 mod search_insert_position;
 pub mod second_minimum_node_in_a_binary_tree;
