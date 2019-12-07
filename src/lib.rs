@@ -101,6 +101,7 @@ pub mod spiral_matrix_ii;
 pub mod spiral_matrix_iii;
 pub mod squares_of_a_sorted_array;
 pub mod stone_game;
+pub mod subsets;
 pub mod subtree_of_another_tree;
 pub mod sum_of_two_integers;
 mod sum_root_to_leaf_numbers;
