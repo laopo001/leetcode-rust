@@ -37,6 +37,7 @@ pub mod intersection_of_two_arrays;
 pub mod intersection_of_two_arrays_ii;
 pub mod island_perimeter;
 mod isomorphic_strings;
+pub mod jump_game_ii;
 mod keyboard_row;
 pub mod kth_largest_element_in_a_stream;
 pub mod last_stone_weight;
