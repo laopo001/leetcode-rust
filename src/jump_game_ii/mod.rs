@@ -1,27 +1,31 @@
 #![allow(unused)]
 struct Solution;
-
-fn run(nums: &Vec<i32>, i: usize) -> i64 {
-    // println!("{:?}", i);
-    let len = nums.len();
-    if i >= len - 1 {
-        return 0;
-    }
-    if nums[i] == 0 {
-        return 1 + run(&nums, i + 1);
-    }
-    std::cmp::min(
-        1 + if i + nums[i] as usize > len - 1 {
-            0
-        } else {
-            run(&nums, i + nums[i] as usize)
-        },
-        1 + run(&nums, i + 1),
-    )
-}
+// Runtime: 0 ms, faster than 100.00%
 impl Solution {
     pub fn jump(nums: Vec<i32>) -> i32 {
-        run(&nums, 0) as i32
+        let len = nums.len();
+        if len <= 1 {
+            return 0;
+        }
+        let mut count = 0;
+        let mut max_index = 0;
+        loop {
+            // println!("{:?}", max_index);
+            let start = max_index + nums[max_index] as usize;
+            count += 1;
+            if start >= len - 1 {
+                break;
+            }
+            let mut max_i32 = 0;
+            let temp = max_index;
+            for i in max_index..=start {
+                if max_i32 < nums[i] + (i - temp) as i32 {
+                    max_i32 = nums[i] + (i - temp) as i32;
+                    max_index = i;
+                }
+            }
+        }
+        count
     }
 }
 #[test]
