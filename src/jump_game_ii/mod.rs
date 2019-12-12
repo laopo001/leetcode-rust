@@ -17,9 +17,12 @@ impl Solution {
                 break;
             }
             let mut max_i32 = 0;
+            if max_index == start {
+                return 0;
+            }
             let temp = max_index;
             for i in max_index..=start {
-                if max_i32 < nums[i] + (i - temp) as i32 {
+                if max_i32 <= nums[i] + (i - temp) as i32 {
                     max_i32 = nums[i] + (i - temp) as i32;
                     max_index = i;
                 }
