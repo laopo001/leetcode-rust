@@ -61,6 +61,7 @@ pub mod maximum_binary_tree_ii;
 pub mod maximum_length_of_repeated_subarray;
 pub mod maximum_product_subarray;
 mod maximum_subarray;
+pub mod merge_intervals;
 pub mod merge_sorted_array;
 pub mod merge_two_binary_trees;
 pub mod merge_two_sorted_lists;
