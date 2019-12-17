@@ -26,12 +26,12 @@ fn main() {
         }
     }
     fn static_dispatch<T>(t: &T)
-        where
-            T: Bar,
+    where
+        T: Bar,
     {
         t.baz();
     }
-    fn dynamic_dispatch(t: &Bar) {
+    fn dynamic_dispatch(t: &dyn Bar) {
         t.baz();
     }
     let foo = Foo;
