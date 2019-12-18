@@ -1,3 +1,4 @@
+#![allow(unused)]
 #![feature(vec_remove_item, box_syntax, box_patterns)]
 
 pub mod base;
