@@ -123,4 +123,5 @@ pub mod valid_anagram;
 pub mod valid_perfect_square;
 pub mod valid_sudoku;
 pub mod word_pattern;
+pub mod word_search;
 pub mod zigzag_conversion;
