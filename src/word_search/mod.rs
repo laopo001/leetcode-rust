@@ -17,7 +17,7 @@ fn run(
     board: &Vec<Vec<char>>,
 ) -> bool {
     let len_x = board.len();
-    let len_y = board.get(0).unwrap().len();
+    let len_y = board[0].len();
     // println!("{},{},{},{},{}", x, y, index, board[x][y], word[index]);
     // println!("::::{:?}", map);
     let mut b = board[x][y] == word[index];
@@ -27,8 +27,7 @@ fn run(
     if (index == word.len() - 1 && b) {
         return true;
     }
-    if (x as i32 - 1 < 0) {
-    } else if check(x - 1, y, len_x, len_y, map) {
+    if check(x - 1, y, len_x, len_y, map) {
         map[x][y] = false;
         if b && run(x - 1, y, index + 1, word, map, board) {
             return true;
@@ -42,8 +41,7 @@ fn run(
         }
         map[x][y] = true;
     }
-    if (y as i32 - 1 < 0) {
-    } else if check(x, y - 1, len_x, len_y, map) {
+    if check(x, y - 1, len_x, len_y, map) {
         map[x][y] = false;
         if b && run(x, y - 1, index + 1, word, map, board) {
             return true;
