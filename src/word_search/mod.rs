@@ -59,7 +59,7 @@ fn run(
     // println!("::::{:?}", 123);
     return false;
 }
-// Runtime: 24 ms, faster than 26.92%
+// Runtime: 8 ms, faster than 100.00%
 impl Solution {
     pub fn exist(board: Vec<Vec<char>>, word: String) -> bool {
         if word.len() == 0 {
@@ -76,9 +76,6 @@ impl Solution {
             for j in 0..val.len() {
                 if (run(i, j, 0, &word_arr, &mut map, &board)) {
                     return true;
-                } else {
-                    map.iter_mut()
-                        .for_each(|x| x.iter_mut().for_each(|y| *y = true));
                 }
             }
         }
