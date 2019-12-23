@@ -79,6 +79,7 @@ pub mod palindromic_substrings;
 mod path_sum;
 mod path_sum_iii;
 pub mod peak_index_in_a_mountain_array;
+pub mod perfect_number;
 pub mod permutation_sequence;
 pub mod permutations;
 pub mod permutations_ii;
