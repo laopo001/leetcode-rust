@@ -1,7 +1,8 @@
 struct Solution;
 
 fn check(x: usize, y: usize, len_x: usize, len_y: usize, map: &mut Vec<Vec<bool>>) -> bool {
-    if (x >= 0 && x < len_x && y >= 0 && y < len_y && map[x][y]) {
+    //  if (x >= 0 && x < len_x && y >= 0 && y < len_y && map[x][y])
+    if (x > 0 && x < len_x && y > 0 && y < len_y && map[x][y]) {
         return true;
     } else {
         return false;
