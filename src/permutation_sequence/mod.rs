@@ -8,7 +8,7 @@ fn run(i: i32, arr: &mut Vec<i32>) -> i32 {
     arr.push(res);
     return i * res;
 }
-
+// Runtime: 0 ms, faster than 100.00%
 impl Solution {
     pub fn get_permutation(n: i32, mut k: i32) -> String {
         let mut arr: Vec<i32> = Vec::new();
