@@ -4,31 +4,34 @@ use std::collections::HashSet;
 impl Solution {
     pub fn is_valid_sudoku(board: Vec<Vec<char>>) -> bool {
         let len = 9;
-        let mut set = HashSet::<char>::new();
+        let mut map = vec![false; 10];
         for y in 0..len {
-            let mut set = HashSet::<char>::new();
             for x in 0..len {
                 if board[y][x] == '.' {
                     continue;
                 }
-                if set.contains(&board[y][x]) {
+                if map[board[y][x].to_digit(10).unwrap() as usize - 1] {
                     return false;
                 } else {
-                    set.insert(board[y][x]);
+                    map[board[y][x].to_digit(10).unwrap() as usize - 1] = true;
                 }
             }
-            set.clear();
+            map.iter_mut().for_each(|x| {
+                *x = false;
+            });
             for x in 0..len {
                 if board[x][y] == '.' {
                     continue;
                 }
-                if set.contains(&board[x][y]) {
+                if map[board[x][y].to_digit(10).unwrap() as usize - 1] {
                     return false;
                 } else {
-                    set.insert(board[x][y]);
+                    map[board[x][y].to_digit(10).unwrap() as usize - 1] = true;
                 }
             }
-            set.clear();
+            map.iter_mut().for_each(|x| {
+                *x = false;
+            });
         }
         let i = 3;
         for y in 0..i {
@@ -38,15 +41,17 @@ impl Solution {
                         if board[i * y + yy][i * x + xx] == '.' {
                             continue;
                         }
-                        if set.contains(&board[i * y + yy][i * x + xx]) {
+                        if map[board[i * y + yy][i * x + xx].to_digit(10).unwrap() as usize - 1] {
                             return false;
                         } else {
-                            set.insert(board[i * y + yy][i * x + xx]);
+                            map[board[i * y + yy][i * x + xx].to_digit(10).unwrap() as usize - 1] =
+                                true;
                         }
                     }
                 }
-                // dbg!(i * y, i * x, &set);
-                set.clear();
+                map.iter_mut().for_each(|x| {
+                    *x = false;
+                });
             }
         }
         true
