@@ -1,6 +1,6 @@
 use crate::base::Solution;
 use std::collections::HashSet;
-
+// Runtime: 4 ms, faster than 94.00%
 impl Solution {
     pub fn is_valid_sudoku(board: Vec<Vec<char>>) -> bool {
         let len = 9;
@@ -31,60 +31,22 @@ impl Solution {
             set.clear();
         }
         let i = 3;
-        set.clear();
         for y in 0..i {
             for x in 0..i {
-                if board[y][x] == '.' {
-                    continue;
-                }
-                if set.contains(&board[y][x]) {
-                    return false;
-                } else {
-                    set.insert(board[y][x]);
-                }
-            }
-        }
-        dbg!(1111);
-        let mut all: Vec<HashSet<char>> = vec![set.clone()];
-        let mut set_clone = set.clone();
-        for x in i..len {
-            for y in 0..i {
-                if board[y][x - i] == '.' {
-                    continue;
-                }
-                set_clone.remove(&board[y][x - i]);
-            }
-            for y in 0..i {
-                if board[y][x] == '.' {
-                    continue;
-                }
-                if set_clone.contains(&board[y][x]) {
-                    return false;
-                } else {
-                    set_clone.insert(board[y][x]);
-                }
-            }
-            all.push(set_clone.clone());
-        }
-        dbg!(2222);
-        for y in i..len {
-            for x in i..len {
-                for z in 0..i {
-                    if board[y - i][x - z] == '.' {
-                        continue;
-                    }
-                    all[x - i].remove(&board[y - i][x - z]);
-                }
-                for z in 0..i {
-                    if board[y][x - z] == '.' {
-                        continue;
-                    }
-                    if all[x - i].contains(&board[y][x - z]) {
-                        return false;
-                    } else {
-                        all[x - i].insert(board[y][x - z]);
+                for yy in 0..i {
+                    for xx in 0..i {
+                        if board[i * y + yy][i * x + xx] == '.' {
+                            continue;
+                        }
+                        if set.contains(&board[i * y + yy][i * x + xx]) {
+                            return false;
+                        } else {
+                            set.insert(board[i * y + yy][i * x + xx]);
+                        }
                     }
                 }
+                // dbg!(i * y, i * x, &set);
+                set.clear();
             }
         }
         true
