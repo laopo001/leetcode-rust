@@ -28,6 +28,7 @@ pub mod divisor_game;
 pub mod fibonacci_number;
 pub mod find_common_characters;
 pub mod find_pivot_index;
+pub mod find_words_that_can_be_formed_by_characters;
 mod friend_circles;
 pub mod group_anagrams;
 pub mod hamming_distance;
