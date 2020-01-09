@@ -1,5 +1,6 @@
 struct Solution;
 
+// Runtime: 4 ms, faster than 100.00%
 impl Solution {
     pub fn count_characters(words: Vec<String>, chars: String) -> i32 {
         let mut map = [0; 26];
