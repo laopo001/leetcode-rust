@@ -116,6 +116,7 @@ pub mod subsets;
 pub mod subtree_of_another_tree;
 pub mod sum_of_two_integers;
 mod sum_root_to_leaf_numbers;
+pub mod super_egg_drop;
 mod surface_area_of_3d_shapes;
 pub mod swap_nodes_in_pairs;
 pub mod top_k_frequent_elements;
