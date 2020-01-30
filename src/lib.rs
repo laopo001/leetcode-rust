@@ -57,6 +57,7 @@ pub mod longest_palindromic;
 pub mod longest_palindromic_substring;
 mod longest_univalue_path;
 pub mod majority_element;
+pub mod matrix_cells_in_distance_order;
 pub mod maximize_distance_to_closest_person;
 pub mod maximum_binary_tree;
 pub mod maximum_binary_tree_ii;
