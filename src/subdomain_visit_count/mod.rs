@@ -33,3 +33,15 @@ impl Solution {
         res
     }
 }
+
+#[test]
+fn test() {
+    assert_eq!(
+        Solution::subdomain_visits(vec!["9001 discuss.leetcode.com".to_string()]),
+        vec![
+            "9001 discuss.leetcode.com".to_string(),
+            "9001 leetcode.com".to_string(),
+            "9001 com".to_string()
+        ]
+    );
+}
