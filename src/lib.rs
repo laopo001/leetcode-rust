@@ -104,6 +104,7 @@ pub mod second_minimum_node_in_a_binary_tree;
 pub mod self_dividing_numbers;
 pub mod set_matrix_zeroes;
 pub mod single_number;
+pub mod single_number_ii;
 pub mod sliding_window_maximum;
 pub mod smallest_range_i;
 pub mod sort_array_by_parity;
