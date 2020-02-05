@@ -2,7 +2,7 @@ struct Solution;
 use std::collections::HashMap;
 // Runtime: 0 ms, faster than 100.00%
 impl Solution {
-    pub fn single_number(nums: Vec<i32>) -> i32 {
+    pub fn single_number(nums: Vec<i32>) -> Vec<i32> {
         let mut map: HashMap<i32, i32> = HashMap::new();
         for i in nums {
             if let Some(v) = map.get_mut(&i) {
@@ -11,16 +11,19 @@ impl Solution {
                 map.insert(i, 1);
             }
         }
+        let mut res = vec![];
         for (k, v) in map {
             if v == 1 {
-                return k;
+                res.push(k);
             }
         }
-        return 0;
+        return res;
     }
 }
 
 #[test]
 fn test() {
-    assert_eq!(Solution::single_number(vec![0, 1, 0, 1, 0, 1, 99]), 99);
+    let mut arr = Solution::single_number(vec![1, 2, 1, 3, 2, 5]);
+    arr.sort();
+    assert_eq!(arr, [3, 5]);
 }
