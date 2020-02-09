@@ -108,6 +108,7 @@ pub mod single_number_ii;
 pub mod single_number_iii;
 pub mod sliding_window_maximum;
 pub mod smallest_range_i;
+pub mod sort_an_array;
 pub mod sort_array_by_parity;
 pub mod sort_array_by_parity_ii;
 pub mod sort_colors;
