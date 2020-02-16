@@ -21,6 +21,7 @@ pub mod convert_a_number_to_hexadecimal;
 mod count_and_say;
 pub mod count_primes;
 pub mod counting_bits;
+pub mod custom_sort_string;
 pub mod defanging_an_ip_address;
 pub mod di_string_match;
 pub mod divide_two_integers;
