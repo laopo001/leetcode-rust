@@ -91,6 +91,7 @@ pub mod permutations_ii;
 pub mod powerful_integers;
 pub mod powx_n;
 pub mod range_sum_of_bst;
+pub mod range_sum_query_mutable;
 pub mod relative_sort_array;
 pub mod remove_duplicates_from_sorted_list;
 pub mod remove_nth_node_from_end_of_list;
