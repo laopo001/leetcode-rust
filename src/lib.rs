@@ -75,6 +75,7 @@ pub mod minimum_absolute_difference_in_bst;
 pub mod minimum_cost_for_tickets;
 mod minimum_depth_of_binary_tree;
 pub mod most_common_word;
+pub mod moving_stones_until_consecutive;
 mod n_repeated_element_in_size_2n_array;
 pub mod nth_digit;
 pub mod number_complement;
