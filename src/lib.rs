@@ -94,6 +94,7 @@ pub mod relative_sort_array;
 pub mod remove_duplicates_from_sorted_list;
 pub mod remove_nth_node_from_end_of_list;
 pub mod reverse_vowels_of_a_string;
+pub mod reverse_words_in_a_string;
 pub mod reverse_words_in_a_string_iii;
 pub mod rotate_array;
 pub mod rotate_image;
