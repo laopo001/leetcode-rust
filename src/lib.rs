@@ -120,6 +120,7 @@ pub mod sort_colors;
 pub mod spiral_matrix;
 pub mod spiral_matrix_ii;
 pub mod spiral_matrix_iii;
+pub mod split_a_string_in_balanced_strings;
 pub mod squares_of_a_sorted_array;
 pub mod stone_game;
 pub mod subdomain_visit_count;
