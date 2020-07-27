@@ -145,3 +145,4 @@ pub mod valid_sudoku;
 pub mod word_pattern;
 pub mod word_search;
 pub mod zigzag_conversion;
+pub mod maximum_product_of_three_numbers;
