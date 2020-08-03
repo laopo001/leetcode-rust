@@ -26,13 +26,13 @@ impl Solution {
                         } else {
                             x.pop();
                             if z == 0 {
-                                return 0;
+                                // return 0;
                                 removes.push(i);
                             }
                         }
                     } else if x.len() == 0 {
                         if z == 0 {
-                            return 0;
+                            // return 0;
                             removes.push(i);
                         }
                     } else { 
@@ -46,7 +46,10 @@ impl Solution {
                 for _ in 0..c {
                     t.push(vec![]);
                 }
-                dbg!(&t);
+                if t.len() == 0 {
+                    break;
+                }
+                // dbg!(&t);
             }
         }
         return t.len() as i32;
@@ -77,4 +80,5 @@ fn test() {
     assert_eq!(Solution::num_decodings("1010".to_string()), 1);
     assert_eq!(Solution::num_decodings("230".to_string()), 0);
     assert_eq!(Solution::num_decodings("301".to_string()), 0);
+    assert_eq!(Solution::num_decodings("1001".to_string()), 0);
 }
