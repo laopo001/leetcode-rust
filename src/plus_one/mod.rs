@@ -1,5 +1,5 @@
 #![allow(unused)]
-use crate::base::Solution;
+struct Solution;
 
 impl Solution {
     pub fn plus_one(digits: Vec<i32>) -> Vec<i32> {

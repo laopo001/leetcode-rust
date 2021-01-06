@@ -1,10 +1,10 @@
 #![allow(unused)]
-use crate::base::{string_to_num, Solution, TreeNode};
+use crate::base::{string_to_num, TreeNode};
 
 use std::cell::RefCell;
 use std::rc::Rc;
 
-
+struct Solution;
 impl Solution {
     pub fn sum_numbers(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
         let mut res = 0;

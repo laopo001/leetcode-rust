@@ -1,4 +1,4 @@
-use crate::base::Solution;
+struct Solution;
 
 fn run(nums: Vec<i32>, num: i32) -> Vec<Vec<i32>> {
     let mut res: Vec<Vec<i32>> = vec![];

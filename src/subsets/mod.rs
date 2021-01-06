@@ -1,5 +1,4 @@
 #![allow(unused)]
-
 struct Solution;
 
 fn run(nums: &Vec<i32>, n: usize) -> Vec<Vec<i32>> {

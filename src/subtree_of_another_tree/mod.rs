@@ -1,6 +1,8 @@
-use crate::base::{Solution, TreeNode};
+use crate::base::{TreeNode};
 use std::cell::RefCell;
 use std::rc::Rc;
+
+struct Solution;
 
 fn run(s: Option<Rc<RefCell<TreeNode>>>, t: Option<Rc<RefCell<TreeNode>>>) -> bool {
     if s.is_none() && t.is_none() {

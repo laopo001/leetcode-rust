@@ -1,5 +1,5 @@
-use crate::base::{ListNode, Solution};
-
+use crate::base::{ListNode};
+struct Solution;
 impl Solution {
     pub fn swap_pairs(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
         return head.and_then(|mut a| match a.next {

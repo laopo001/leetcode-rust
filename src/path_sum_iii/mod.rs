@@ -1,9 +1,11 @@
 #![allow(unused)]
-use crate::base::{string_to_num, Solution, TreeNode};
+use crate::base::{string_to_num, TreeNode};
 
 use std::cell::RefCell;
 use std::collections::HashSet;
 use std::rc::Rc;
+
+struct Solution;
 
 fn run(root: Option<Rc<RefCell<TreeNode>>>, sum: i32, res: &mut i32, orgin_sum: &i32, level: i32) {
     if root == None {

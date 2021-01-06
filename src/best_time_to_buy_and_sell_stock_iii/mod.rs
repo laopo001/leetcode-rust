@@ -1,7 +1,7 @@
-use crate::base::Solution;
+struct Solution;
 
 impl Solution {
-	pub fn max_profit_123(prices: Vec<i32>) -> i32 {
+	pub fn max_profit(prices: Vec<i32>) -> i32 {
 		if prices.len() == 0 { return 0; }
 		use std::cmp::{max, min};
 		let mut profit = 0;

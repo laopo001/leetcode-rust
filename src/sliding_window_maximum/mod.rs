@@ -1,4 +1,4 @@
-use crate::base::Solution;
+struct Solution;
 use std::collections::VecDeque;
 
 fn vec_max_value(nums: &VecDeque<i32>) -> i32 {

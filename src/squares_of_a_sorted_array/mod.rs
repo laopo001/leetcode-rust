@@ -1,4 +1,4 @@
-use crate::base::Solution;
+struct Solution;
 
 impl Solution {
 	pub fn sorted_squares(a: Vec<i32>) -> Vec<i32> {

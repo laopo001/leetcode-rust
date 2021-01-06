@@ -1,5 +1,4 @@
-use crate::base::Solution;
-// use std::collections::HashMap;
+struct Solution;
 
 impl Solution {
     // 100%

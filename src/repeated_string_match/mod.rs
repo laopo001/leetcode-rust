@@ -1,6 +1,6 @@
 #![allow(unused)]
-use crate::base::{Solution, TreeNode};
-
+use crate::base::{TreeNode};
+struct Solution;
 impl Solution {
     pub fn repeated_string_match(a: String, b: String) -> i32 {
         let mut s = a.clone();

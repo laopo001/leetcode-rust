@@ -1,5 +1,5 @@
 #![allow(unused)]
-use crate::base::Solution;
+struct Solution;
 
 fn check(nums: &Vec<i32>, mid: i64, m: i32) -> bool {
     let mut c = 0;

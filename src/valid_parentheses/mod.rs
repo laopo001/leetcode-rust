@@ -1,4 +1,4 @@
-use crate::base::Solution;
+struct Solution;
 use std::collections::{HashMap, VecDeque};
 
 impl Solution {

@@ -1,4 +1,4 @@
-use crate::base::Solution;
+struct Solution;
 
 #[allow(dead_code)]
 fn cmp(a: &str) -> bool {

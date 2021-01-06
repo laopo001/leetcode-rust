@@ -1,4 +1,5 @@
-struct Solution {}
+struct Solution;
+
 impl Solution {
     pub fn balanced_string_split(s: String) -> i32 {
         let mut l_c = 0;

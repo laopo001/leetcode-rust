@@ -1,4 +1,4 @@
-use crate::base::Solution;
+struct Solution;
 use std::collections::HashMap;
 impl Solution {
     pub fn find_duplicates(nums: Vec<i32>) -> Vec<i32> {

@@ -1,4 +1,4 @@
-use crate::base::Solution;
+struct Solution;
 use std::collections::HashSet;
 
 fn run(x: i32, y: i32, a: u32, b: u32, bound: i32, arr: &mut HashSet<i32>) {

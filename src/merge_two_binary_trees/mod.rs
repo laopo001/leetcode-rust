@@ -1,7 +1,7 @@
-use crate::base::{Solution, TreeNode};
+use crate::base::{TreeNode};
 use std::cell::RefCell;
 use std::rc::Rc;
-
+struct Solution;
 impl Solution {
     pub fn merge_trees(
         t1: Option<Rc<RefCell<TreeNode>>>,

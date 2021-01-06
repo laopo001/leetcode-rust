@@ -1,4 +1,4 @@
-use crate::base::Solution;
+struct Solution;
 
 impl Solution {
 	//  0 ms, faster than 100.00%

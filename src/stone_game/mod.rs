@@ -1,4 +1,4 @@
-use crate::base::Solution;
+struct Solution;
 use std::cmp::max;
 fn run(piles: &Vec<i32>, l: usize, r: usize) -> i32 {
     if l == r {

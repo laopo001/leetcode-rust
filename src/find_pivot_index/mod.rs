@@ -1,4 +1,4 @@
-use crate::base::Solution;
+struct Solution;
 use std::collections::HashMap;
 
 fn sum_nums(l: usize, r: usize, nums: &Vec<i32>, map: &mut Vec<Vec<Option<i32>>>) -> i32 {

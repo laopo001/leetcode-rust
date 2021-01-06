@@ -1,5 +1,5 @@
-use crate::base::{Solution, JsArray};
-
+use crate::base::{JsArray};
+struct Solution;
 impl Solution {
     pub fn length_of_last_word(s: String) -> i32 {
         // 0 ms, faster than 100.00%

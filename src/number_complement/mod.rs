@@ -1,6 +1,6 @@
 #![allow(unused)]
-use crate::base::{Solution, TreeNode};
-
+use crate::base::{TreeNode};
+struct Solution;
 pub fn num_to_string(n: i32, d: i32) -> String {
     let mut res = "".to_string();
     let mut n = n;

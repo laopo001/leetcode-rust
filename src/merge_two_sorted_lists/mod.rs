@@ -1,6 +1,6 @@
-use crate::base::{ListNode, Solution};
+use crate::base::{ListNode};
 use std::mem;
-
+struct Solution;
 impl Solution {
     pub fn merge_two_lists(
         l1: Option<Box<ListNode>>,

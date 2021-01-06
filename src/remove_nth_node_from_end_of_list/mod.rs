@@ -1,5 +1,5 @@
-use crate::base::{ListNode, Solution};
-
+use crate::base::{ListNode};
+struct Solution;
 impl Solution {
     // error
     pub fn remove_nth_from_end2(head: Option<Box<ListNode>>, n: i32) -> Option<Box<ListNode>> {

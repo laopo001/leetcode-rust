@@ -1,5 +1,5 @@
 #![allow(unused)]
-use crate::base::Solution;
+struct Solution;
 use std::cmp::max;
 
 impl Solution {

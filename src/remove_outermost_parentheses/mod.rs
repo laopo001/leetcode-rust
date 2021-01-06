@@ -1,5 +1,4 @@
-use crate::base::Solution;
-
+struct Solution;
 impl Solution {
     pub fn remove_outer_parentheses(s: String) -> String {
         let mut res = "".to_string();

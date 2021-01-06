@@ -1,9 +1,9 @@
 #![allow(unused)]
-use crate::base::Solution;
+struct Solution;
 use std::cmp::max;
 
 impl Solution {
-    pub fn max_profit2(prices: Vec<i32>) -> i32 {
+    pub fn max_profit(prices: Vec<i32>) -> i32 {
         let mut res = 0;
         let mut sum = 0;
         let mut max_value = std::i32::MAX;

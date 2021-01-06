@@ -1,7 +1,8 @@
 #![allow(unused)]
-use crate::base::{Solution, TreeNode};
+use crate::base::{TreeNode};
 use std::collections::HashMap;
 
+struct Solution;
 impl Solution {
     #[allow(unknown_lints)]
     #[allow(mutable_borrow_reservation_conflict)]

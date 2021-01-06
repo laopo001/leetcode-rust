@@ -1,4 +1,4 @@
-use crate::base::Solution;
+struct Solution;
 use std::collections::HashMap;
 
 fn run(nums: Vec<i32>, num: i32) -> Vec<Vec<i32>> {

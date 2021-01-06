@@ -1,5 +1,5 @@
-use crate::base::{Solution, ListNode};
-
+use crate::base::{ListNode};
+struct Solution;
 impl Solution {
 	// 0 ms, faster than 100.00%
 	pub fn delete_duplicates(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {

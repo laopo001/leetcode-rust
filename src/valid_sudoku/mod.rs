@@ -1,4 +1,4 @@
-use crate::base::Solution;
+struct Solution;
 use std::collections::HashSet;
 // Runtime: 4 ms, faster than 94.00%
 impl Solution {

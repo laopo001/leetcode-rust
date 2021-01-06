@@ -1,4 +1,4 @@
-use crate::base::Solution;
+struct Solution;
 use std::collections::HashMap;
 
 fn vec_to_map(arr: &Vec<i32>) -> HashMap<i32, usize> {

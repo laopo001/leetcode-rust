@@ -1,9 +1,9 @@
 #![allow(unused)]
-use crate::base::{string_to_num, Solution, TreeNode};
-
+use crate::base::{string_to_num, TreeNode};
 use std::cell::RefCell;
 use std::rc::Rc;
 
+struct Solution;
 
 impl Solution {
     pub fn has_path_sum(root: Option<Rc<RefCell<TreeNode>>>, sum: i32) -> bool {

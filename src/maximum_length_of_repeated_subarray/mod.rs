@@ -1,2 +1,2 @@
-use crate::base::Solution;
+struct Solution;
 

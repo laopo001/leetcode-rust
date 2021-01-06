@@ -1,5 +1,5 @@
-use crate::base::Solution;
-
+// use crate::base::Solution;
+struct Solution;
 impl Solution {
     pub fn cal_points(ops: Vec<String>) -> i32 {
         let mut v: Vec<i32> = vec![];

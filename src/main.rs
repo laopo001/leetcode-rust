@@ -1,6 +1,6 @@
 #![allow(unused)]
 
-use leetcode::base::{num_to_string, string_to_num, JsArray, ListNode, Solution, TreeNode};
+use leetcode::base::{num_to_string, string_to_num, JsArray, ListNode, TreeNode};
 use leetcode::find_common_characters;
 use leetcode::longest_palindromic_substring;
 use leetcode::remove_nth_node_from_end_of_list;
@@ -93,8 +93,7 @@ fn main() {
 
         let mut arr: Vec<*const ListNode> = vec![];
         let mut q = Some(Box::new(l));
-        let res = Solution::remove_nth_from_end2(q, 1);
-        println!("{:?}", res);
+     
 
         let a: *mut i32 = &mut 1;
         let b: *mut i32 = &mut 2;
@@ -132,10 +131,7 @@ fn main() {
         }
         println!("A:{:?}", a);
     }
-    {
-        let a = Solution::common_chars2(vec!["bella".to_string()]);
-        println!("a:{:?}", a);
-    }
+
     {
         let v = [10, 40, 30];
         assert_eq!(Some(&40), v.get(1));

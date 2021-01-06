@@ -1,6 +1,6 @@
 #![allow(unused)]
-use crate::base::{index_of_vec, Solution};
-
+use crate::base::{index_of_vec};
+struct Solution;
 impl Solution {
      pub fn find_circle_num(m: Vec<Vec<i32>>) -> i32 {
         let mut res = 0;

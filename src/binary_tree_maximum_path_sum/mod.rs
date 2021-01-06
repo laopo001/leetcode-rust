@@ -1,6 +1,6 @@
 #![allow(unused)]
-use crate::base::{string_to_num, Solution, TreeNode};
-
+use crate::base::{string_to_num, TreeNode};
+struct Solution;
 use std::cell::RefCell;
 use std::cmp::max;
 use std::rc::Rc;

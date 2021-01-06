@@ -1,9 +1,9 @@
 #![allow(unused)]
-use crate::base::{Solution, TreeNode};
+use crate::base::{TreeNode};
 use std::cell::RefCell;
 use std::i32::MAX;
 use std::rc::Rc;
-
+struct Solution;
 impl Solution {
     pub fn min_depth(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
         if let Some(node) = &root {

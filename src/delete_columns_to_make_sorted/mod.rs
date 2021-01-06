@@ -1,4 +1,4 @@
-use crate::base::Solution;
+struct Solution;
 
 impl Solution {
     pub fn min_deletion_size(a: Vec<String>) -> i32 {

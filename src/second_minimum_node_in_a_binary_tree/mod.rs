@@ -1,7 +1,7 @@
-use crate::base::{Solution, TreeNode};
+use crate::base::{TreeNode};
 use std::rc::Rc;
 use std::cell::RefCell;
-
+struct Solution;
 fn run(root: Option<Rc<RefCell<TreeNode>>>, arr: &mut Vec<i32>) {
 	//  0 ms, faster than 100.00%
 	if let Some(node) = root {

@@ -147,3 +147,6 @@ pub mod word_search;
 pub mod zigzag_conversion;
 pub mod maximum_product_of_three_numbers;
 pub mod decode_ways;
+pub mod convert_binary_number_in_a_linked_list_to_integer;
+
+

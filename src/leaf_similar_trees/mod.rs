@@ -1,5 +1,5 @@
-use crate::base::{Solution, TreeNode};
-
+use crate::base::{TreeNode};
+struct Solution;
 use std::rc::Rc;
 use std::cell::RefCell;
 

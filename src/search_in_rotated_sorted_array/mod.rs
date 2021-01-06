@@ -1,4 +1,4 @@
-use crate::base::Solution;
+struct Solution;
 
 fn run(left: usize, right: usize, nums: &Vec<i32>, target: i32) -> i32 {
     let len = right - left;

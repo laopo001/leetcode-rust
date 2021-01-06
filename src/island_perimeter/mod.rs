@@ -1,4 +1,4 @@
-use crate::base::Solution;
+struct Solution;
 
 fn get_one_nums(grid: &Vec<Vec<i32>>, i: usize, j: usize) -> i32 {
 	let mut res = 0;

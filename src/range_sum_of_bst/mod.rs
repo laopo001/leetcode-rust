@@ -1,4 +1,4 @@
-use crate::base::{Solution, TreeNode};
+use crate::base::{TreeNode};
 
 
 use std::cell::RefCell;
@@ -20,7 +20,7 @@ fn run(root: Option<Rc<RefCell<TreeNode>>>, l: i32, r: i32, res: &mut i32) {
         run(root_value.borrow().right.clone(), l, r, res);
     }
 }
-
+struct Solution;
 impl Solution {
     pub fn range_sum_bst(root: Option<Rc<RefCell<TreeNode>>>, l: i32, r: i32) -> i32 {
         let mut res = 0;
