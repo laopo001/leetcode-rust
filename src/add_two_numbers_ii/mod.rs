@@ -1,7 +1,7 @@
 use crate::base::ListNode;
 struct Solution;
 
-// 16 ms, faster than 9.09% 
+// 4 ms, faster than 100.00%
 impl Solution {
     pub fn add_two_numbers(
         mut l1: Option<Box<ListNode>>,
