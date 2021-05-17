@@ -152,3 +152,4 @@ pub mod detect_capital;
 pub mod average_salary_excluding_the_minimum_and_maximum_salary;
 pub mod add_two_numbers_ii;
 pub mod matrix_01;
+pub mod minimum_size_subarray_sum;
