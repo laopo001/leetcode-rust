@@ -15,17 +15,18 @@ impl Solution {
             if (i > n as usize) {
                 break;
             }
-            for x in i..=(n as usize) {
-                if (x == i) {
-                    if (arr[x] == 0) {
-                        arr[x] = x as i32;
-                    }
-                } else if (x % i == 0) {
+            if (arr[i] == 0) {
+                arr[i] = i as i32;
+            }
+
+            for x in ((i + 1)..=(n as usize)) {
+                if (x % i == 0) {
                     arr[x] = arr[i] + (x / i) as i32;
+                    // break;
                 }
             }
+            // dbg!(i, arr.clone());
             i += 1;
-            // dbg!(arr.clone());
         }
 
         arr[n as usize]
