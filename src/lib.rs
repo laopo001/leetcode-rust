@@ -1,5 +1,5 @@
 #![allow(unused)]
-#![feature(vec_remove_item, box_syntax, box_patterns)]
+#![feature(box_syntax, box_patterns)]
 
 pub mod base;
 
@@ -153,3 +153,4 @@ pub mod average_salary_excluding_the_minimum_and_maximum_salary;
 pub mod add_two_numbers_ii;
 pub mod matrix_01;
 pub mod minimum_size_subarray_sum;
+pub mod two_keys_keyboard;
