@@ -158,3 +158,4 @@ pub mod additive_number;
 pub mod split_array_into_fibonacci_sequence;
 pub mod one_bit_and_two_bit_characters;
 pub mod gray_code;
+pub mod array_of_doubled_pairs;
