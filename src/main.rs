@@ -15,6 +15,20 @@ struct Point {
 }
 
 fn main() {
+    let mut a = Box::new(ListNode { val: 0, next: None });
+    let a_ptr = a.as_mut() as *mut ListNode;
+    let l = ListNode {
+        val: 0,
+        next: Some(a),
+    };
+    unsafe {
+        (*a_ptr).val = 1;
+    }
+    
+    dbg!(l);
+}
+
+fn main2() {
     #[derive(Debug)]
     struct Foo;
     trait Bar {
@@ -93,7 +107,6 @@ fn main() {
 
         let mut arr: Vec<*const ListNode> = vec![];
         let mut q = Some(Box::new(l));
-     
 
         let a: *mut i32 = &mut 1;
         let b: *mut i32 = &mut 2;

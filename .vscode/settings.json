@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "*.hbs": "pinescript",
+        "climits": "cpp"
+    }
+}
