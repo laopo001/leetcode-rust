@@ -160,3 +160,4 @@ pub mod one_bit_and_two_bit_characters;
 pub mod gray_code;
 pub mod array_of_doubled_pairs;
 pub mod insertion_sort_list;
+pub mod number_of_islands;
