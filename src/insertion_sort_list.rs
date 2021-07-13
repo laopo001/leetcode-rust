@@ -1,55 +1,56 @@
 use crate::base::ListNode;
 struct Solution;
 
+use std::ptr;
+trait AsMutPtr<T> {
+    fn as_mut_ptr(&mut self) -> *mut T;
+}
+
+impl<'a, T> AsMutPtr<T> for Option<T> {
+    fn as_mut_ptr(&mut self) -> *mut T {
+        match self {
+            Some(value) => value as *mut T,
+            None => ptr::null_mut(),
+        }
+    }
+}
+
 impl Solution {
-    // pub fn insertion_sort_list(mut head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
-    //     let mut res: Box<ListNode> = Box::new(ListNode::new(std::i32::MIN));
-    //     let mut prev = &mut res.next;
-    //     let mut temp = Some(Box::new(ListNode::new(std::i32::MIN)));
-    //     while let Some(node) = head {
-    //         if (prev.is_none()) {
-    //             std::mem::swap(
-    //                 prev,
-    //                 &mut Some(Box::new(ListNode {
-    //                     val: node.val,
-    //                     next: None,
-    //                 })),
-    //             );
-    //             head = node.next;
-    //             continue;
-    //         }
-
-    //         unsafe {
-    //             let mut pre_node_ptr: *mut ListNode = std::ptr::null_mut();
-    //             let mut is_add = false;
-    //             temp = (*prev);
-    //             while let Some(mut node2) = (temp) {
-    //                 let mut next = node2.next.take();
-    //                 if node2.val < node.val {
-    //                     is_add = true;
-    //                     (*pre_node_ptr).next = Some(Box::new(ListNode {
-    //                         val: node.val,
-    //                         next: next,
-    //                     }));
-
-    //                     break;
-    //                 }
-    //                 pre_node_ptr = node2.as_mut() as *mut ListNode;
-
-    //                 temp = next;
-    //             }
-    //             if (!is_add) {
-    //                 is_add = true;
-    //                 (*pre_node_ptr).next = Some(Box::new(ListNode {
-    //                     val: node.val,
-    //                     next: None,
-    //                 }));
-    //             }
-    //         }
-    //         head = node.next;
-    //     }
-    //     return res.next;
-    // }
+    pub fn insertion_sort_list2(mut head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+        unsafe {
+            let mut res = Some(Box::new(ListNode::new(std::i32::MIN)));
+            while let Some(node) = head {
+                let mut is_add = false;
+                let mut pre_node_ptr: *mut Box<ListNode> = std::ptr::null_mut();
+                let mut temp = res.as_mut_ptr();
+                while (!temp.is_null()) {
+                    let node2 = &mut *temp;
+                    pre_node_ptr = temp;
+                    if (node2.val <= node.val
+                        && node2.next.is_some()
+                        && node2.next.as_ref().unwrap().val > node.val)
+                    {
+                        is_add = true;
+                        (*pre_node_ptr).next = Some(Box::new(ListNode {
+                            val: node.val,
+                            next: node2.next.clone(),
+                        }));
+                        break;
+                    }
+                    temp = node2.next.as_mut_ptr();
+                }
+                if (!is_add) {
+                    is_add = false;
+                    (*pre_node_ptr).next = Some(Box::new(ListNode {
+                        val: node.val,
+                        next: None,
+                    }));
+                }
+                head = node.next;
+            }
+            return res.unwrap().next;
+        }
+    }
     pub fn insertion_sort_list(mut head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
         if head.is_none() {
             return head;
@@ -84,7 +85,7 @@ impl Solution {
 
 #[test]
 fn test() {
-    let a = Solution::insertion_sort_list(Some(Box::new(ListNode {
+    let a = Solution::insertion_sort_list2(Some(Box::new(ListNode {
         val: 4,
         next: Some(Box::new(ListNode {
             val: 2,

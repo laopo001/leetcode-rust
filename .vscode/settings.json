@@ -1,6 +1,14 @@
 {
     "files.associations": {
         "*.hbs": "pinescript",
-        "climits": "cpp"
+        "climits": "cpp",
+        "vector": "cpp",
+        "__config": "cpp",
+        "iosfwd": "cpp",
+        "iterator": "cpp",
+        "typeinfo": "cpp",
+        "ostream": "cpp",
+        "iostream": "cpp",
+        "ios": "cpp"
     }
 }
