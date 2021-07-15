@@ -161,3 +161,4 @@ pub mod gray_code;
 pub mod array_of_doubled_pairs;
 pub mod insertion_sort_list;
 pub mod number_of_islands;
+pub mod kth_largest_element_in_an_array;
