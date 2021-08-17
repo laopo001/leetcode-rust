@@ -1,61 +1,37 @@
 struct Solution;
 
 impl Solution {
+    // 8 ms, faster than 100.00%  
     pub fn wiggle_sort(nums: &mut Vec<i32>) {
-        if (nums.len() == 0 || nums.len() == 1) {
-            return;
+        nums.sort();
+        // dbg!(nums.clone());
+        let mut res: Vec<i32> = vec![];
+        let mut a = nums.len() / 2 - (if (nums.len() % 2 == 0) { 1 } else { 0 });
+        let t = a;
+        let mut b = nums.len() - 1;
+        loop {
+            if (b == t) {
+                res.push(nums[a]);
+                break;
+            }
+            // dbg!(a, b);
+            res.push(nums[a]);
+            res.push(nums[b]);
+            if a == 0 {
+                break;
+            }
+            a -= 1;
+            b -= 1;
         }
-        let mut b = false;
-        for i in 1..nums.len() {
-            b = !b;
-            if nums[i] == nums[i - 1] {
-                let mut a = true;
-                for j in (i + 1)..nums.len() {
-                    if (nums[j] != nums[i]) {
-                        let t = nums[i];
-                        nums[i] = nums[j];
-                        nums[j] = t;
-                        a = false;
-                        break;
-                    }
-                }
-                if (a) {
-                    for j in 0..(i - 1) {
-                        if (nums[j] > nums[i - 1]) == b
-                            && j % 2 == 1
-                            && nums[j - 1] < nums[i]
-                            && nums[j + 1] < nums[i]
-                        {
-                            let t = nums[i];
-                            nums[i] = nums[j];
-                            nums[j] = t;
-                            break;
-                        }
-                        if (nums[j] > nums[i - 1]) == b
-                            && j % 2 == 0
-                            && (j == 0 || nums[j - 1] > nums[i])
-                            && nums[j + 1] > nums[i]
-                        {
-                            let t = nums[i];
-                            nums[i] = nums[j];
-                            nums[j] = t;
-                            break;
-                        }
-                    }
-                }
-            }
-            if (nums[i] > nums[i - 1]) != b {
-                let t = nums[i];
-                nums[i] = nums[i - 1];
-                nums[i - 1] = t;
-            }
+        for i in 0..nums.len() {
+            nums[i] = res[i];
         }
     }
 }
 
 #[test]
 fn test() {
-    let mut arr = vec![4, 5, 5, 6];
+    let mut arr = vec![1, 4, 3, 4, 1, 2, 1, 3, 1, 3, 2, 3, 3];
     Solution::wiggle_sort(&mut arr);
     dbg!(arr);
 }
