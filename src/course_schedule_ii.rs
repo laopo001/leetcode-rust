@@ -2,6 +2,7 @@ struct Solution;
 use std::collections::VecDeque;
 
 impl Solution {
+    // 0 ms, faster than 100.00%
     pub fn find_order(num_courses: i32, prerequisites: Vec<Vec<i32>>) -> Vec<i32> {
         let mut res = Vec::new();
         let mut graph = vec![vec![]; num_courses as usize];
@@ -16,7 +17,7 @@ impl Solution {
                 q.push_back(i as i32);
             }
         }
-        dbg!(&graph, &inc, &q);
+        // dbg!(&graph, &inc, &q);
         while (!q.is_empty()) {
             let t = q.pop_front().unwrap();
             res.push(t);
