@@ -166,3 +166,4 @@ pub mod wiggle_sort_ii;
 pub mod course_schedule_ii;
 pub mod shift_2d_grid;
 pub mod jump_game_iii;
+pub mod jump_game_vii;
