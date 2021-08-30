@@ -65,29 +65,30 @@ fn run(arr: &[u8], min_jump: usize, max_jump: usize, start: usize, map: &mut Vec
 // }
 
 impl Solution {
+    // 4 ms, faster than 100.00% 
     pub fn can_reach(s: String, min_jump: i32, max_jump: i32) -> bool {
         let arr: Vec<u8> = s.as_bytes().iter().map(|x| return *x - '0' as u8).collect();
-        let mut f = vec![0; arr.len() + 1];
-        let mut s = vec![0; arr.len() + 1];
-        f[1] = 1;
-        s[1] = 1;
-        for i in 2..=arr.len() {
-            if (arr[i - 1] == 0 && i as i32 - min_jump >= 1) {
-                let l = std::cmp::max(1, i as i32 - max_jump) as usize;
+        let mut f = vec![0; arr.len()];
+        let mut s = vec![0; arr.len()];
+        f[0] = 1;
+        s[0] = 1;
+        for i in 1..arr.len() {
+            if (arr[i] == 0 && i as i32 - min_jump >= 0) {
+                let l = std::cmp::max(0, i as i32 - max_jump) as usize;
                 let r = i - min_jump as usize;
-                if (s[r] > s[l - 1]) {
+                if l == 0 || (s[r] > s[l - 1]) {
                     f[i] = 1;
                 }
             }
             s[i] = s[i - 1] + f[i];
         }
-        return f[arr.len()] == 1;
+        return f[arr.len() - 1] == 1;
     }
 }
 
 #[test]
 fn test() {
-    let res = Solution::can_reach("011010".to_string(), 2, 3);
+    let res = Solution::can_reach("00".to_string(), 1, 1);
     dbg!(res);
 }
 /*
