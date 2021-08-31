@@ -3,16 +3,22 @@
  * @param {number} k
  * @return {number}
  */
+
+// Time Limit Exceeded
 var maxResult = function (nums, k) {
     let dp = [];
     let res = -Infinity;
+    for (let i = 1; i < nums.length; i++) {
+        dp[i] = -Infinity;
+    }
     dp[0] = nums[0];
+
     // dp[1] = dp[0] + nums[1];
     for (let i = 1; i < nums.length; i++) {
 
         for (j = 1; j <= k; j++) {
             if (i - j >= 0) {
-                dp[i] = Math.max(dp[i] || -Infinity, dp[i - j] + nums[i]);
+                dp[i] = Math.max(dp[i], dp[i - j] + nums[i]);
             }
         }
     }
