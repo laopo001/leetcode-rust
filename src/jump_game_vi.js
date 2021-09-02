@@ -72,10 +72,10 @@ var maxResult = function (nums, k) {
         // dp[i] = dp[i - k] + q.max();
 
         if (Math.max(i - k, 0)) { // start为max(i-k, 0)
-            dequeue.shift(dp[i - k - 1]); // 移除start的前一个
+            q.shift(dp[i - k - 1]); // 移除start的前一个
         }
-        dp[i] = dequeue.max() + nums[i]
-        dequeue.push(dp[i])
+        dp[i] = q.max() + nums[i]
+        q.push(dp[i])
 
     }
     return dp[nums.length - 1];
