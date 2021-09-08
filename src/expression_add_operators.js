@@ -5,82 +5,95 @@
  */
 
 
-
 var addOperators = function (num, target) {
-    console.log(num, target);
     if (num.length > 1 && num[0] == 0) {
     } else {
         if (+num === target) {
             return [num];
         }
     }
-    // if (+num === target) { return [num]; }
-    let operators = ['+', '-', '*'];
+    let operators = ['+', '-'];
     let res = [];
-    for (let i = 1; i < num.length; i++) {
+    for (let i = 1; i <= num.length; i++) {
         for (let j = 0; j < operators.length; j++) {
             const o = operators[j];
             let left = num.slice(0, i);
-            if (o === '+') {
-                let q = addOperators(num.slice(i, num.length), target - +left);
-                for (let i = 0; i < q.length; i++) {
-                    const right = q[i];
-                    res.push(left + o + right);
-                }
-            } else if (o === '-') {
-                let q = addOperators(num.slice(i, num.length), +left - target);
-                for (let i = 0; i < q.length; i++) {
-                    const right = q[i];
-                    res.push(left + o + right);
-                }
-            } else if (o === '*') {
-                let x = num.slice(i, i + 1);
-                if (num.slice(i + 1, num.length).length === 0) {
-                    if (left * x == target) {
-                        res.push(left + o + x);
-                        continue;
-                    }
 
+            if (left.length === 1) {
+                if (o === '+') {
+                    let q = addOperators(num.slice(i, num.length), target - +left);
+                    for (let i = 0; i < q.length; i++) {
+                        const right = q[i];
+                        res.push(left + o + right);
+                    }
+                } else if (o === '-') {
+                    let q = addOperators(num.slice(i, num.length), +left - target);
+                    for (let i = 0; i < q.length; i++) {
+                        const right = q[i];
+                        res.push(left + o + right);
+                    }
                 }
-                for (let k = 0; k < operators.length; k++) {
-                    const o2 = operators[k];
-                    if (o2 === '+') {
-                        let q = addOperators(
-                            num.slice(i + 1, num.length),
-                            target - +left * x
-                        );
+            } else {
+                if (left.length > 1 && left[0] == 0) {
+
+                } else {
+                    if (o === '+') {
+                        let q = addOperators(num.slice(i, num.length), target - +left);
                         for (let i = 0; i < q.length; i++) {
                             const right = q[i];
-                            res.push(left + o + x + o2 + right);
+                            res.push(left + o + right);
                         }
-                    } else if (o2 === '-') {
-                        let q = addOperators(
-                            num.slice(i + 1, num.length),
-                            +left * x - target
-                        );
+                    } else if (o === '-') {
+                        let q = addOperators(num.slice(i, num.length), +left - target);
                         for (let i = 0; i < q.length; i++) {
                             const right = q[i];
-                            res.push(left + o + x + o2 + right);
+                            res.push(left + o + right);
                         }
-                    } else if (o2 === '*' && target % (+left * x) == 0) {
-                        let q = addOperators(
-                            num.slice(i + 1, num.length),
-                            target / (+left * x)
-                        );
-                        for (let i = 0; i < q.length; i++) {
-                            const right = q[i];
-                            res.push(left + o + x + o2 + right);
-                        }
+                    }
+                }
+                let accumulate = 1;
+                let arr = [];
+                for (let i = 0; i < left.length; i++) {
+                    const element = left[i];
+                    accumulate = accumulate * element;
+                    arr.push(element);
+                }
+                if (num.slice(i, num.length).length === 0 && accumulate === target) {
+                    res.push(arr.join('*'))
+                    break;
+                }
+                if (o === '+') {
+                    let q = addOperators(num.slice(i, num.length), target - +accumulate);
+                    for (let i = 0; i < q.length; i++) {
+                        const right = q[i];
+                        res.push(arr.join('*') + o + right);
+                    }
+                } else if (o === '-') {
+                    let q = addOperators(num.slice(i, num.length), +accumulate - target);
+                    for (let i = 0; i < q.length; i++) {
+                        const right = q[i];
+                        res.push(arr.join('*') + o + right);
                     }
                 }
             }
+
         }
     }
+
     return res;
 };
 
-addOperators("105", 5)
 
+// var res = addOperators("105", 5)
 
-addOperators("123", 6)
+// var res = addOperators("232", 8)
 
+// var res = addOperators("123", 6)
+
+// let res = addOperators("3456237490", 9191);
+
+// var res = addOperators("00", 0)
+
+var res = addOperators("123456789", 45)
+
+console.log(res);
