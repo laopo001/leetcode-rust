@@ -24,7 +24,7 @@ const largestRectangleArea = (heights) => {
     return maxArea
 }
 
-
+// 92 ms, faster than 75.71%
 var maximalRectangle = function (matrix) {
 
     let m = matrix.length;
