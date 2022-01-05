@@ -1,19 +1,14 @@
-function isLike(short, long) {
-    if (short.length + 1 != long.length) {
-        return false;
-    }
-    let c = 0;
-    for (let i = 0; i < short.length; i++) {
-        if (short[i] !== long[i] && c === 0) {
-            c++;
-            i--;
-            continue;
-        }
-        if (short[i] !== long[i + 1] && c === 1) {
-            return false;
+function isLike(map, word) {
+    let arr = []
+    for (let j = 0; j < word.length; j++) {
+        let left = word.slice(0, j);
+        let right = word.slice(j + 1, word.length);
+        let newWord = left + right;
+        if (map[newWord]) {
+            arr.push(newWord)
         }
     }
-    return true;
+    return arr;
 }
 
 function run(nodes, parent, c) {
@@ -50,17 +45,22 @@ var longestStrChain = function (words) {
         if (map[i + 1] == null || map[i] == null) {
             continue;
         }
+        let preWordMap = {};
         for (let j = 0; j < map[i].length; j++) {
-            for (let k = 0; k < map[i + 1].length; k++) {
-                if (isLike(map[i][j], map[i + 1][k])) {
-                    if (parent[map[i][j]]) {
-                        parent[map[i][j]].push(map[i + 1][k]);
+            preWordMap[map[i][j]] = true;
+        }
+        for (let k = 0; k < map[i + 1].length; k++) {
+            let preWordArr = isLike(preWordMap, map[i + 1][k]);
+            if (preWordArr.length > 0) {
+                preWordArr.forEach(word => {
+                    if (parent[word]) {
+                        parent[word].push(map[i + 1][k]);
                     } else {
-                        parent[map[i][j]] = [map[i + 1][k]]
+                        parent[word] = [map[i + 1][k]]
                     }
-                    // parent[map[i][j]] = map[i + 1][k];
-                    visited[map[i + 1][k]] = true;
-                }
+                });
+                // parent[map[i][j]] = map[i + 1][k];
+                visited[map[i + 1][k]] = true;
             }
         }
     }
