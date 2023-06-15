@@ -1,53 +1,48 @@
 var cancellable = function (generator) {
-    let cancel;
-    let generatorValue;
-    let step = 0;
-    let promise = new Promise((resolve, reject) => {
-      cancel = () => {
-        if (step === 0) {
-          // reject('Cancelled');
-          try {
-            run(generator.throw('Cancelled'));
-          } catch {
-            reject('Cancelled');
-          }
-        } else {
-          resolve(generatorValue);
-        }
-      };
-      function run(result) {
-        try {
-          if (result.done) {
-            resolve(result.value);
-          } else {
-            if (result.value instanceof Promise) {
-              result.value
-                .then((res) => {
-                  generatorValue = res;
-                  step++;
-                  run(generator.next(res));
-                })
-                .catch((err) => {
-                  try {
-                    run(generator.throw(err));
-                  } catch {
-                    reject(err);
-                  }
-                });
-            } else {
-              generatorValue = result.value;
-              step++;
-              run(generator.next());
-            }
-          }
-        } catch (err) {
-          reject(err);
-        }
+  let cancel;
+  let generatorValue;
+  let step = 0;
+  let promise = new Promise((resolve, reject) => {
+    cancel = () => {
+      try {
+        run(generator.throw('Cancelled'));
+      } catch {
+        reject('Cancelled');
       }
-      run(generator.next());
-    });
-    return [cancel, promise];
-  };
+    };
+    function run(result) {
+      try {
+        if (result.done) {
+          resolve(result.value);
+        } else {
+          if (result.value instanceof Promise) {
+            result.value
+              .then((res) => {
+                generatorValue = res;
+                step++;
+                run(generator.next(res));
+              })
+              .catch((err) => {
+                try {
+                  run(generator.throw(err));
+                } catch {
+                  reject(err);
+                }
+              });
+          } else {
+            generatorValue = result.value;
+            step++;
+            run(generator.next());
+          }
+        }
+      } catch (err) {
+        reject(err);
+      }
+    }
+    run(generator.next());
+  });
+  return [cancel, promise];
+};
 
 /**
  * function* tasks() {
