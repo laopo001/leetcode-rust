@@ -18,8 +18,6 @@ var cancellable = function (generator) {
           if (result.value instanceof Promise) {
             result.value
               .then((res) => {
-                generatorValue = res;
-                step++;
                 run(generator.next(res));
               })
               .catch((err) => {
@@ -30,8 +28,6 @@ var cancellable = function (generator) {
                 }
               });
           } else {
-            generatorValue = result.value;
-            step++;
             run(generator.next());
           }
         }
